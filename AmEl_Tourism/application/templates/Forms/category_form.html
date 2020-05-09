@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <form class="main-form category-form" action="" method="post">
+        <h2 class="text-center">Добавление категории</h2>
+
+        <div class="{{ alert }}" role="alert">
+            {{message}}
+        </div>
+
+        {{ form.hidden_tag() }}
+        {{ form.csrf_token }}
+
+        <p>
+            {{ form.name_of_category.label }}<br>
+            {{ form.name_of_category(class="form-control") }}
+        </p>
+
+        <p class="text-right">
+            <a href="/categories" class="btn btn-danger">Отменить</a>
+            {{ form.submit(type="submit", class="btn btn-primary", value=submit_button_text) }}
+        </p>
+    </form>
+</div>
+{% endblock %}

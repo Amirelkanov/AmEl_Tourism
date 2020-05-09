@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <form class="main-form register-form blue-link" action="" method="post">
+        <h2 class="text-center">Регистрация</h2>
+
+        <div class="{{ alert }}" role="alert">
+            {{message}}
+        </div>
+
+        {{ form.hidden_tag() }}
+        {{ form.csrf_token }}
+
+        <p>
+
+            {{ form.name.label }}<br>
+            {{ form.name(class="form-control") }}<br>
+
+
+            {{ form.login_or_email.label }}<br>
+            {{ form.login_or_email(class="form-control", type="email") }}<br>
+
+
+            {{ form.password.label }}<br>
+            {{ form.password(class="form-control", type="password") }}<br>
+
+
+            {{ form.password_again.label }}<br>
+            {{ form.password_again(class="form-control", type="password") }}<br>
+
+        </p>
+
+        {{form.recaptcha()}}<br>
+
+        <p>{{ form.submit(type="submit", class="btn btn-primary btn-block") }}</p>
+
+        <p class="text-center">Есть аккаунт? <a href="/login">Войти</a></p>
+
+    </form>
+</div>
+{% endblock %}

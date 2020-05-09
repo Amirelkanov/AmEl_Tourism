@@ -1,0 +1,617 @@
+/* ------- Header ------- */
+
+.dropdown-item:hover {
+    background-color: ghostwhite;
+    transition: all 0.3216s;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    transition: all 0.3216s;
+}
+
+.dropdown-menu {
+    font-size: 18px;
+}
+
+/* ---------------------- */
+
+
+/* ----- Index page ----- */
+
+.wrapper-main-content {
+    justify-content: center;
+}
+
+.has-sidebar {
+    padding-right: 15px !important;
+}
+
+.col-lg-6, .col-md-6 {
+    padding-right: 20px !important;
+    padding-left: 20px !important;
+}
+
+/* ---------------------- */
+
+
+/* --- Article footer --- */
+
+.post-related .post-title {
+    margin-bottom: 1.5rem;
+}
+
+.see-also-heading {
+    margin: 1.5rem auto 1rem;
+}
+
+/* ---------------------- */
+
+
+/* --- Error page --- */
+
+/* Error image width */
+.error-images {
+    width: 500px;
+}
+
+.box-noresults {
+    width: 500px;
+    max-width: 100%;
+    margin: 7% auto;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.error-font {
+    font-family: titillium web, sans-serif;
+    padding-top: 1rem;
+    text-align: center;
+}
+
+/* ------------------ */
+
+
+/* ------ Form ------ */
+
+/* Form title */
+h2 {
+    padding-bottom: 8px;
+}
+
+.main-form {
+    padding-top: 8%;
+    margin: auto;
+}
+
+.login-form, .register-form {
+    width: 330px;
+}
+
+.article-form {
+    max-width: 650px;
+    width: 70%;
+}
+
+@media screen and (max-width: 362px) {
+
+    p .btn-cancel, p .btn-publish {
+        width: 100%;
+    }
+
+    p .btn-cancel {
+        margin-bottom: 0.1em;
+    }
+
+}
+
+.category-form {
+    max-width: 350px;
+    width: 70%;
+}
+
+
+/* ------------------ */
+
+
+/* --- Fixing footer at the bottom --- */
+
+footer {
+    background-color: #1a1d21;
+    color: #ffffff;
+    padding: 20px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.content {
+    min-height: calc(100vh - 80px);
+}
+
+/* ----------------------------------- */
+
+
+/* Image scaling */
+
+.post-image, .post-header, .pinit, .about-us-title-image {
+    overflow: hidden;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+@media screen and (max-width: 500px) {
+    .pinit {
+        width: 300px;
+    }
+}
+
+.post-image, .about-us-title-image img {
+    transition: all 1s ease-out;
+}
+
+.post-header:hover .child, .about-us-title-image img:hover {
+    transform: scale(1.05);
+}
+
+/* */
+
+
+/* ----------------------- F O N T S ----------------------- */
+
+.info-font {
+    font-size: 14px !important;
+    font-family: Arial, sans-serif;
+}
+
+.article-font {
+    font-family: 'Poppins', sans-serif;
+}
+
+.logo-font {
+    font-family: nunito, -apple-system, BlinkMacSystemFont,
+    segoe ui, Roboto, helvetica neue, Arial, sans-serif,
+    apple color emoji, segoe ui emoji, segoe ui symbol, noto color emoji;
+    font-size: 1.15rem;
+}
+
+/* ---------------------------------------------------------- */
+
+
+/* Changing link color */
+
+.colorful-link a {
+    color: #1a1d21 !important;
+}
+
+.colorful-link a:hover,
+.blue-link a:hover {
+    color: orange !important;
+    text-decoration: none;
+    transition: all 0.3216s;
+}
+
+/* */
+
+
+/* Copy tooltip */
+
+.copy-coords-tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.copy-coords-tooltip .tooltip-text {
+    visibility: hidden;
+    width: 110px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 115%;
+    left: 101%;
+    margin-left: -75px;
+    opacity: 0;
+    transition: all 0.3216s;
+}
+
+.copy-coords-tooltip .tooltip-text::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.copy-coords-tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* */
+
+
+/* ------------- A R T I C L E  F O R M ------------- */
+
+
+/* Custom download file button */
+
+.inputfile {
+    width: 0.1em;
+    height: 0.1em;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.inputfile + label {
+    max-width: 80%;
+    font-size: 1rem;
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    padding: 0.625rem 1.25rem;
+}
+
+.no-js .inputfile + label {
+    display: none;
+}
+
+.inputfile + label svg, label .fas {
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    fill: currentColor;
+    margin-top: -0.25em;
+    margin-right: 0.25em;
+}
+
+.inputfile + label {
+    color: white;
+    background-color: #007bff;
+    border-radius: 0.25rem;
+}
+
+.inputfile:focus + label,
+.inputfile.has-focus + label,
+.inputfile + label:hover {
+    background-color: #0069d9;
+    transition: all 0.3216s;
+}
+
+/* */
+
+
+/* Editor */
+
+.editor {
+    background-color: #bad2ff;
+    padding: 5px;
+    border-radius: 0.5rem;
+}
+
+.editor textarea {
+    border-radius: 0.5rem;
+}
+
+/* */
+
+
+/* Editor buttons */
+
+.kb-buttons {
+    padding: 5px 2px;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.kb-buttons button {
+    margin-left: 10px;
+    margin-bottom: 2px;
+    width: 45px;
+    height: 30px;
+    border: none;
+    border-radius: 10%;
+    background-color: white !important;
+    color: #1a1d21;
+}
+
+.kb-buttons button:hover {
+    background-color: #1a1d21 !important;
+    color: white !important;
+    transition: all 0.3216s;
+}
+
+.kb-buttons i {
+    font-size: 20px;
+    vertical-align: 1rem;
+}
+
+/* */
+
+
+/* -------------------------------------------------- */
+
+
+/* ------- Coords image ------- */
+
+.bookmark-tag-text {
+    margin-right: 5px !important;
+}
+
+.colorful-icon {
+    color: orange !important;
+}
+
+.btn-copy-coords :hover {
+    color: #ffbe77 !important;
+    transition: all 0.3216s;
+}
+
+.scope {
+    font-size: 5px !important;
+    margin-bottom: 1px !important;
+    margin-right: 3px;
+}
+
+/* ---------------------------- */
+
+
+/* ------ Article image ------ */
+
+.post-map-params {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.centered-image {
+    margin: 14px auto !important;
+    display: flex;
+    justify-content: center;
+}
+
+.centered-image img {
+    max-height: 30em;
+}
+
+@media screen and (max-width: 400px) {
+    .centered-image img {
+        max-height: 20em;
+    }
+}
+
+.blocks-gallery-item img {
+    border-radius: 5px;
+}
+
+/* --------------------------- */
+
+
+/* -------- About us image -------- */
+
+.about-us-title-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* -------------------------------- */
+
+
+/* Footer icons */
+
+.social-links .fab {
+    font-size: 50px;
+    margin-left: 0.2em;
+    color: #dbdbdb !important;
+    text-decoration: none !important;
+}
+
+.social-links .fab:hover {
+    color: #ffa300 !important;
+    transition: all 0.3216s;
+}
+
+.btn-copy-coords {
+    padding-top: 2px !important;
+}
+
+.footer-icons {
+    padding: 1px 10px 10px;
+    margin-right: 10px;
+}
+
+/* */
+
+
+/* Horizontal line under article */
+.has-horizontal-line-on-top {
+    border-top: solid 1px #eee
+}
+
+
+/* -------------- Categories table -------------- */
+
+.category-table, .users-table {
+    padding: 5rem;
+}
+
+.category-table table, .users-table table {
+    margin: auto;
+    width: 700px;
+}
+
+
+.category-table th, .users-table th {
+    font-weight: normal;
+    border-bottom: 2px solid #6678b1;
+    border-right: 30px solid #fff;
+    border-left: 30px solid #fff;
+    color: #039;
+    padding: 8px 2px;
+}
+
+.category-table td, .users-table td {
+    border-right: 30px solid #fff;
+    border-left: 30px solid #fff;
+    color: #669;
+    padding: 10px 2px;
+}
+
+
+/* When hovering action icons appear */
+
+tr .category-actions {
+    opacity: 0;
+}
+
+tr:hover .category-actions {
+    opacity: 1;
+    transition: all 0.5s;
+}
+
+.delete-category-action {
+    margin: 1em 0 1em 1em;
+}
+
+/* */
+
+
+@media all and (max-width: 770px) {
+    .category-table table {
+        width: 400px;
+    }
+
+    .users-table table {
+        display: block;
+        overflow-x: scroll;
+        max-width: 500px;
+    }
+}
+
+@media all and (max-width: 500px) {
+    .users-table table {
+        max-width: 300px;
+    }
+}
+
+@media all and (max-width: 400px) {
+    .category-table table {
+        width: 200px;
+    }
+
+    tr .category-actions {
+        opacity: 1;
+    }
+
+    .delete-category-action {
+        margin: 1em 0;
+    }
+}
+
+
+/* ---------------------------------------------- */
+
+
+/* Action button margin */
+.actions a {
+    margin: 0.5em;
+}
+
+
+/* ----------------- Round button ----------------- */
+
+.actions .topbutton {
+    position: fixed;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    right: 0;
+    width: 66px;
+    height: 66px;
+    font-size: 40px;
+    border-radius: 50%;
+    border: 1px solid #dfe1e5;
+    background: white;
+    color: orange !important;
+    transform-origin: 50% 50%;
+    z-index: 500;
+    padding: 10px;
+}
+
+.actions .category-action {
+    bottom: 0.1rem;
+}
+
+.actions .article-add {
+    bottom: 4.5rem;
+}
+
+.actions .topbutton:hover {
+    box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
+    transition: all 0.3216s;
+}
+
+/* ------------------------------------------------ */
+
+
+/* --- User role in the table (admin / not admin) --- */
+
+.admin-setting {
+    cursor: pointer;
+}
+
+tr .positive {
+    background-color: #cdf1d1;
+}
+
+tr .negative {
+    background-color: #f1cfca;
+}
+
+tr .positive:hover {
+    background-color: #d7ffdb;
+    transition: all 0.3216s;
+}
+
+tr .negative:hover {
+    background-color: #ffdad6;
+    transition: all 0.3216s;
+}
+
+/* -------------------------------------------------- */
+
+
+/* Pagination */
+.active .page-link {
+    background-color: orange !important;
+    border-color: orange !important;
+}
+
+
+/* --- Interstitial animation --- */
+
+.transition-fade {
+    transition: 0.4s;
+    opacity: 1;
+}
+html.is-animating .transition-fade{
+    opacity: 0;
+}
+
+/* ------------------------------ */

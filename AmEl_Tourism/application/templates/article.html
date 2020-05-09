@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<div id="content" class="arimolite-primary">
+    <div class="main-container">
+        <div class="container">
+            <div class="arimolite-single-post colorful-link">
+
+                {% set article_category =
+                category_list.filter_by(id=article_info.article_category_id).first().name_of_category %}
+
+                <article class="post type-post status-publish format-standard has-post-thumbnail">
+                    <div class="post-inner">
+
+                        <div class="post-header">
+                            <div class="post-format">
+                                <img class="pinit" style="max-height: 30rem;"
+                                     src="{{ url_for('static', filename='img/title_imgs/' + article_info.thumbnail_img) }}"
+                                     alt="Lorem ipsum dolor sit amet">
+                            </div>
+                        </div>
+
+                        {% if current_user.is_admin %}
+                        <div class="actions text-right">
+                            <a href="/edit_article/{{ article_info.id }}" title="Изменить статью" ><i class="fa fa-pen"></i></a>
+                            <a href="/delete_article/{{ article_info.id }}" title="Удалить статью"><i
+                                    class="fa fa-trash"></i></a>
+                        </div>
+                        {% endif %}
+
+                        <div class="post-info">
+                            {% if article_category %}
+                            <div class="post-cats"><i class="fas fa-bookmark colorful-icon bookmark-tag-text"></i>
+                                <a href="/category/{{ article_info.article_category_id }}" title="Категория"
+                                   rel="category tag">{{ article_category }}</a>
+                            </div>
+                            {% endif %}
+
+                            <h1 class="post-title">{{ title }}</h1>
+
+                            <!-- Copying coords -->
+                            <div class="post-map-params info-font">
+
+                                <div class="coords-of-place">
+                                    <svg class="scope" xmlns="http://www.w3.org/2000/svg" width="24"
+                                         height="24"
+                                         viewBox="0 0 24 24">
+                                        <path fill="#d7d7d7" fill-rule="evenodd"
+                                              d="M11.755 3h.49c.413 0 .58.046.743.134.163.087.291.215.378.378.088.163.134.33.134.743v3.49c0 .413-.046.58-.134.743a.909.909 0 0 1-.378.378c-.163.088-.33.134-.743.134h-.49c-.413 0-.58-.046-.743-.134a.909.909 0 0 1-.378-.378c-.088-.163-.134-.33-.134-.743v-3.49c0-.413.046-.58.134-.743a.909.909 0 0 1 .378-.378c.163-.088.33-.134.743-.134zm0 12h.49c.413 0 .58.046.743.134.163.087.291.215.378.378.088.163.134.33.134.743v3.49c0 .413-.046.58-.134.743a.909.909 0 0 1-.378.378c-.163.088-.33.134-.743.134h-.49c-.413 0-.58-.046-.743-.134a.909.909 0 0 1-.378-.378c-.088-.163-.134-.33-.134-.743v-3.49c0-.413.046-.58.134-.743a.909.909 0 0 1 .378-.378c.163-.088.33-.134.743-.134zm-7.5-4.5h3.49c.413 0 .58.046.743.134.163.087.291.215.378.378.088.163.134.33.134.743v.49c0 .413-.046.58-.134.743a.909.909 0 0 1-.378.378c-.163.088-.33.134-.743.134h-3.49c-.413 0-.58-.046-.743-.134a.909.909 0 0 1-.378-.378c-.088-.163-.134-.33-.134-.743v-.49c0-.413.046-.58.134-.743a.909.909 0 0 1 .378-.378c.163-.088.33-.134.743-.134zm12 0h3.49c.413 0 .58.046.743.134.163.087.291.215.378.378.088.163.134.33.134.743v.49c0 .413-.046.58-.134.743a.909.909 0 0 1-.378.378c-.163.088-.33.134-.743.134h-3.49c-.413 0-.58-.046-.743-.134a.909.909 0 0 1-.378-.378c-.088-.163-.134-.33-.134-.743v-.49c0-.413.046-.58.134-.743a.909.909 0 0 1 .378-.378c.163-.088.33-.134.743-.134z"/>
+                                    </svg>
+                                    <span id="place_coords_id">{{ article_info.coords }}</span>
+                                </div>
+
+                                <div class="copy-coords-tooltip">
+                                    <button type="submit"
+                                            class="btn btn-link btn-copy-coords info-font copy-button"
+                                            onclick="Copy_coords('place_coords_id','copy_tooltip_id')"
+                                            onmouseout="Show_tooltip('copy_tooltip_id')">
+                                        <span class="tooltip-text" id="copy_tooltip_id">Скопировать</span><i
+                                            class="fa fa-copy colorful-icon"></i>
+                                    </button>
+                                </div>
+
+                            </div>
+                            <!-- -->
+
+                            <div class="post-content article-font" id="article_text">
+                                <!-- Article text start here -->
+                            </div>
+
+
+                        </div>
+                    </div>
+                </article>
+
+                {% if related_posts %}
+
+                <div class="post-related arimolite-blog has-horizontal-line-on-top"><h3 class="see-also-heading">
+                    Смотрите также</h3>
+                    <div class="row">
+                        {% for item in related_posts %}
+                        <div class="col-md-4 item-relate post">
+                            <div class="inner-post">
+                                <div class="post-header">
+                                    <div class="post-format">
+                                        <a class="post-image child"
+                                           style="background-image: url({{ url_for('static', filename='img/title_imgs/' + item.thumbnail_img) }});"
+                                           href="/article/{{item.id}}"></a>
+                                    </div>
+                                </div>
+                                <div class="post-info">
+                                    <div class="post-cats">
+                                        <i class="fas fa-bookmark colorful-icon bookmark-tag-text"></i>
+                                        <a href="/category/{{item.article_category_id}}">{{ article_category }}</a>
+                                    </div>
+                                    <h3 class="post-title"><a href="/article/{{ item.id }}">{{ item.title }}</a></h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        {% endfor %}
+
+                    </div>
+                </div>
+
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
