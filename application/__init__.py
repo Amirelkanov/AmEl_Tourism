@@ -21,9 +21,9 @@ def create_app():
     app.config["RECAPTCHA_PRIVATE_KEY"] = "6Leg2OkUAAAAAJkKR0CIhMxxIS5eu65_dZYZW4oF"
 
     # Init database
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://yrsbqwsromkeye:bf57e535203a44c05066bb36a3c8fe6223c445ed' \
-                                            '8cd2e66926a6e7420c902aee@ec2-52-202-146-43.compute-1.' \
-                                            'amazonaws.com:5432/d6chqkqfaro0t9'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://wgfebwadpolfvi:61a91a8bd3230cc9ab9a020ba3517faeb998eedbe87723' \
+                                            '7c112d29114ff8736f@ec2-52-71-55-81.compute-1.amazonaws.com:5432' \
+                                            '/d2j2hkmdp0uifl'
 
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
