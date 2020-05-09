@@ -5,7 +5,7 @@
 
 from flask import Flask
 
-from .commands import create_tables
+from commands import create_tables
 from .extensions.init_models import db, login_manager
 from .routes import errors_handler, article_actions, user_data, category_actions, static_pages, user_actions
 
