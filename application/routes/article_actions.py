@@ -7,7 +7,6 @@ from werkzeug.utils import secure_filename
 
 from ..data.articles import Category, Article
 from ..extensions.const import min_length_of_text
-from ..extensions.img_dirs import TITLE_IMG_DIR, ARTICLE_IMG_DIR
 from ..extensions.img_tags import img_tag, group_img_tag
 from ..extensions.init_models import db
 from ..extensions.is_admin_decorator import is_user_admin
@@ -102,12 +101,14 @@ def edit_article(article_id):
             form.text.data = article_by_id.text.replace('<br>', '\r')
             form.category.data = article_by_id.article_category_id
             title_image_name = article_by_id.thumbnail_img
-
             article_imgs = article_by_id.article_imgs.split(', ')
             length_of_article_images = len(article_imgs)
 
-            article_images = f'{length_of_article_images} файла(ов) выбрано' if length_of_article_images > 1 \
-                else article_imgs[0]
+            if length_of_article_images > 1:
+                article_images = f'{length_of_article_images} файла(ов) выбрано'
+            else:
+                if article_imgs[0] != '':
+                    article_images = article_imgs[0]
 
         else:
             abort(404)
