@@ -67,8 +67,8 @@ def add_article():
             return render_template("Forms/article_form.html", title='Добавление статьи',
                                    form=form, alert="alert alert-danger",
                                    message="Кол-во указанных изображений не соответствует загруженным",
-                                   title_image_name=title_image_name,
-                                   article_images=article_images, min_length_of_text=min_length_of_text,
+                                   title_image_name='Титульное изображение',
+                                   article_images='Загрузить изображения', min_length_of_text=min_length_of_text,
                                    submit_button_text='Опубликовать')
 
         # --------------------------------------------------------------------------------
@@ -161,8 +161,8 @@ def edit_article(article_id):
                 return render_template("Forms/article_form.html", title='Редактирование статьи',
                                        form=form, alert="alert alert-danger",
                                        message="Кол-во указанных изображений не соответствует загруженным",
-                                       title_image_name=title_image_name,
-                                       article_images=article_images, submit_button_text='Сохранить')
+                                       title_image_name='Титульное изображение',
+                                       article_images='Загрузить изображения', submit_button_text='Сохранить')
             # --------------------------------------------------------------------------------
 
             return redirect('/')
