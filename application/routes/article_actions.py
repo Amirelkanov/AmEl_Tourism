@@ -146,13 +146,13 @@ def edit_article(article_id):
                      len(name_of_article_images[0])):
 
                 name_of_article_images = load_images(article_images)
-
                 article_info.title = form.title.data.strip()
                 article_info.coords = form.coords_of_place.data
                 article_info.thumbnail_img = title_filename.strip() if title_filename != '' \
                     else article_info.thumbnail_img
                 article_info.text = article_text
-                article_info.article_imgs = ', '.join(name_of_article_images)
+                article_info.article_imgs = ', '.join(name_of_article_images) if len(name_of_article_images[0]) > 0 \
+                    else article_info.article_imgs
                 article_info.article_category_id = form.category.data
                 db.session.add(article_info)
                 db.session.commit()
