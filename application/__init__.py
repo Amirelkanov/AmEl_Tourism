@@ -29,6 +29,7 @@ def create_app():
 
     db.init_app(app)
     login_manager.init_app(app)
+    login_manager.login_view = 'auth.login'
 
     app.register_blueprint(static_pages.main)
     app.register_blueprint(user_data.user)
