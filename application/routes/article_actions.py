@@ -39,10 +39,7 @@ def add_article():
 
         # Downloading title images
         list_of_title_imgs = request.files.getlist('thumbnail-img')
-        title_filename = \
-            [secure_filename(title_img_upload.filename) for title_img_upload in list_of_title_imgs][0]
-        title_filename = title_filename if len(title_filename.strip()) > 0 else 'background_article_image.png'
-        load_images(list_of_title_imgs, TITLE_IMG_DIR)
+        title_filename = load_images(list_of_title_imgs)[0]
 
         # Downloading article images
         article_images = request.files.getlist('article-images')
@@ -54,12 +51,13 @@ def add_article():
                  article_text.count(img_tag) + article_text.count(group_img_tag) ==
                  len(name_of_article_images[0])):
 
-            load_images(article_images, ARTICLE_IMG_DIR)
+            name_of_article_images = load_images(article_images)
 
             article_info = Article(title=form.title.data.strip(),
                                    author_id=current_user.id,
                                    coords=form.coords_of_place.data,
-                                   thumbnail_img=title_filename,
+                                   thumbnail_img=title_filename if title_filename != ''
+                                   else 'https://i.imgur.com/HrLbqAM.png',
                                    text=article_text,
                                    article_imgs=', '.join(name_of_article_images),
                                    article_category_id=form.category.data)
@@ -130,9 +128,7 @@ def edit_article(article_id):
 
             # Downloading title images
             list_of_title_imgs = request.files.getlist('thumbnail-img')
-            title_filename = \
-                [secure_filename(title_img_upload.filename) for title_img_upload in list_of_title_imgs][0]
-            load_images(list_of_title_imgs, TITLE_IMG_DIR)
+            title_filename = load_images(list_of_title_imgs)[0]
 
             # Downloading article images
             article_images = request.files.getlist('article-images')
@@ -148,7 +144,7 @@ def edit_article(article_id):
                      article_text.count(img_tag) + article_text.count(group_img_tag) ==
                      len(name_of_article_images[0])):
 
-                load_images(article_images, ARTICLE_IMG_DIR)
+                name_of_article_images = load_images(article_images)
 
                 article_info.title = form.title.data.strip()
                 article_info.coords = form.coords_of_place.data

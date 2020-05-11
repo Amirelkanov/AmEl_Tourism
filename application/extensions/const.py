@@ -5,3 +5,6 @@
 
 min_length_of_text = 40
 max_num_of_articles_per_page = 8
+
+CLIENT_ID = '88f8766cc5ea144'
+SAVE_DIR = 'application/static/img/temp_imgs/'

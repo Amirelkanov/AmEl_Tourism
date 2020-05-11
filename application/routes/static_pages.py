@@ -4,7 +4,7 @@
 from random import shuffle
 
 from bs4 import BeautifulSoup
-from flask import Blueprint, render_template, url_for
+from flask import Blueprint, render_template
 
 from ..extensions.img_tags import img_tag, group_img_tag, img_group_tag, img_group_closing_tag
 from ..extensions.is_admin_decorator import is_user_admin
@@ -55,7 +55,7 @@ def article(article_id):
     for i, article_img in enumerate(article_images):
         article_text.count(img_tag) + article_text.count(group_img_tag)
 
-        image_html_tag = f'<img src="{url_for("static", filename=f"img/article_imgs/{article_img}")}" alt="">'
+        image_html_tag = f'<img src="{article_img}" alt="">'
 
         # ----------------------- Replacing input [blocks] to <html> blocks -----------------------
 
@@ -65,7 +65,7 @@ def article(article_id):
         if image_tag_st_ind != -1:
             article_text = article_text[
                            :image_tag_st_ind] + '<br><p class="centered-image post-format">' + \
-                           f'<img src="{url_for("static", filename=f"img/article_imgs/{article_img}")}" alt="" ' \
+                           f'<img src="{article_img}" alt="" ' \
                            f'class="pinit">' + '</p>' + \
                            article_text[image_tag_st_ind + len(img_tag):]
 

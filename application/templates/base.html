@@ -31,7 +31,7 @@
     <!-- ------------- -->
 
     <title>{{ title }}</title>
-    <link rel="shortcut icon" type="image/svg" href="static/favicon/beach.svg">
+    <link rel="shortcut icon" type="image/svg" href="https://clck.ru/NPZpa">
 
 </head>
 <body>
@@ -40,7 +40,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-1">
         <div class="container">
             <a class="navbar-brand logo-font" href="/" title="AmEl Tourism">
-                <img src="/static/favicon/beach.svg" alt="AmEl Tourism Logo" width="56"
+                <img src="https://clck.ru/NPZpa" alt="AmEl Tourism Logo" width="56"
                      class="d-inline-block align-middle mr-2 my-2 my-lg-0"/>
             </a>
 
@@ -85,41 +85,41 @@
                     </li>
 
                     {% if current_user.is_authenticated and current_user.is_admin %}
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" title="Функции админа"
-                           id="admin-menu" data-toggle="dropdown"
-                           aria-haspopup="true" aria-expanded="false">
-                            Админ
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="admin-menu">
-                            <a class="dropdown-item" href="/add_article">
-                                Добавить статью
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" title="Функции админа"
+                               id="admin-menu" data-toggle="dropdown"
+                               aria-haspopup="true" aria-expanded="false">
+                                Админ
                             </a>
-                            <a class="dropdown-item" href="/add_category">
-                                Добавить категорию
-                            </a>
-                            <a class="dropdown-item" href="/categories">
-                                Список категорий
-                            </a>
-                            <a class="dropdown-item" href="/users">
-                                Список пользователей
-                            </a>
-                        </div>
-                    </li>
+                            <div class="dropdown-menu" aria-labelledby="admin-menu">
+                                <a class="dropdown-item" href="/add_article">
+                                    Добавить статью
+                                </a>
+                                <a class="dropdown-item" href="/add_category">
+                                    Добавить категорию
+                                </a>
+                                <a class="dropdown-item" href="/categories">
+                                    Список категорий
+                                </a>
+                                <a class="dropdown-item" href="/users">
+                                    Список пользователей
+                                </a>
+                            </div>
+                        </li>
                     {% endif %}
 
                 </ul>
 
                 {% if current_user.is_authenticated %}
-                <a class="btn btn-outline-light my-2 my-lg-0"
-                   href="/logout" title="Ваш логин">
-                    {{current_user.name }}
-                </a>
+                    <a class="btn btn-outline-light my-2 my-lg-0"
+                       href="/logout" title="Ваш логин">
+                        {{ current_user.name }}
+                    </a>
                 {% else %}
-                <a class="btn btn-outline-light my-2 my-lg-0"
-                   href="/login">
-                    Войти
-                </a>
+                    <a class="btn btn-outline-light my-2 my-lg-0"
+                       href="/login">
+                        Войти
+                    </a>
                 {% endif %}
 
             </div>

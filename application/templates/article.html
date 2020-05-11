@@ -16,7 +16,7 @@
                         <div class="post-header">
                             <div class="post-format">
                                 <img class="pinit" style="max-height: 30rem;"
-                                     src="{{ url_for('static', filename='img/title_imgs/' + article_info.thumbnail_img) }}"
+                                     src="{{ article_info.thumbnail_img }}"
                                      alt="{{ title }}">
                             </div>
                         </div>
@@ -85,7 +85,7 @@
                                 <div class="post-header">
                                     <div class="post-format">
                                         <a class="post-image child"
-                                           style="background-image: url({{ url_for('static', filename='img/title_imgs/' + item.thumbnail_img) }});"
+                                           style="background-image: url({{ item.thumbnail_img }});"
                                            href="/article/{{item.id}}"></a>
                                     </div>
                                 </div>
