@@ -49,11 +49,6 @@
 
 /* --- Error page --- */
 
-/* Error image width */
-.error-images {
-    width: 500px;
-}
-
 .box-noresults {
     width: 500px;
     max-width: 100%;
