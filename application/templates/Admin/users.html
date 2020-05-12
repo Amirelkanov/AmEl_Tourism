@@ -19,18 +19,28 @@
                 <tr>
 
                     <td>{{ i.id }}</td>
-                    <td>{{ i.name }}</td>
+                    <td>{{ i.name }}<br>
+                        {% if i.id == current_user.id %}
+                            <span style="color: lightgrey">(Вы)</span>
+                        {% endif %}
+                    </td>
                     <td>{{ i.email }}</td>
                     <td>{{ i.registration_date }}</td>
 
                     {% if i.is_admin %}
-                        <td class="admin-setting positive"
-                            onclick="window.location.href='/admin_setting/remove/{{ i.id }}'">Да
+
+                        <td {% if i.id != current_user.id %} class="admin-setting positive"
+                                                             onclick="window.location.href='/admin_setting/remove/{{ i.id }}'" {% else %}
+                                                             class="current-user-positive" {% endif %}>Да
                         </td>
+
                     {% else %}
-                        <td class="admin-setting negative"
-                            onclick="window.location.href='/admin_setting/add/{{ i.id }}'">Нет
+
+                        <td {% if i.id != current_user.id %} class="admin-setting negative"
+                                                             onclick="window.location.href='/admin_setting/add/{{ i.id }}'" {% else %}
+                                                             class="current-user-negative" {% endif %}>Нет
                         </td>
+
                     {% endif %}
 
                 </tr>

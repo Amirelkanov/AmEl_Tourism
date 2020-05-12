@@ -571,11 +571,11 @@ tr:hover .category-actions {
     cursor: pointer;
 }
 
-tr .positive {
+tr .positive, tr .current-user-positive {
     background-color: #cdf1d1;
 }
 
-tr .negative {
+tr .negative, tr .current-user-negative {
     background-color: #f1cfca;
 }
 
