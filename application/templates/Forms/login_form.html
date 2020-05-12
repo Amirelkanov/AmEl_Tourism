@@ -1,33 +1,33 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="container">
-    <form class="main-form login-form blue-link" action="" method="post">
-        <h2 class="text-center">Авторизация</h2>
+    <div class="container">
+        <form class="main-form login-form blue-link" action="" method="post">
+            <h2 class="text-center">Авторизация</h2>
 
-        {{ form.hidden_tag() }}
-        {{ form.csrf_token }}
+            {{ form.hidden_tag() }}
+            {{ form.csrf_token }}
 
-        <div class="{{ alert }}" role="alert">
-            {{message}}
-        </div>
+            <div class="{{ alert }}" role="alert">
+                {{ message }}
+            </div>
 
-        <p>
-            {{ form.email.label }}<br>
-            {{ form.email(class="form-control", type="email") }}<br>
+            <p>
+                {{ form.email.label }}<br>
+                {{ form.email(class="form-control", type="email") }}<br>
 
-            {{ form.password.label }}<br>
-            {{ form.password(class="form-control", type="password") }}
-        </p>
+                {{ form.password.label }}<br>
+                {{ form.password(class="form-control", type="password") }}
+            </p>
 
-        {{ form.remember_me() }} {{ form.remember_me.label }}
+            {{ form.remember_me() }} {{ form.remember_me.label }}
 
-        <p>{{ form.submit(type="submit", class="btn btn-primary btn-block") }}</p>
+            <p>{{ form.submit(type="submit", class="btn btn-primary btn-block") }}</p>
 
-        <p class="text-center">
-            Впервые на сайте? <a class="text-center" href="/register">Зарегистрироваться</a>
-        </p>
+            <p class="text-center">
+                Впервые на сайте? <a class="text-center" href="/register">Зарегистрироваться</a>
+            </p>
 
-    </form>
-</div>
+        </form>
+    </div>
 {% endblock %}

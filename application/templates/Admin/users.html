@@ -1,45 +1,45 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="container users-table text-center">
-    <h2>Список пользователей</h2>
-    <table>
+    <div class="container users-table text-center">
+        <h2>Список пользователей</h2>
+        <table>
 
-        <tbody class="blue-link">
+            <tbody class="blue-link">
 
-        <tr>
-            <th>ID</th>
-            <th>Имя пользователя</th>
-            <th>Электронная почта</th>
-            <th>Дата регистрации</th>
-            <th>Админ</th>
-        </tr>
+            <tr>
+                <th>ID</th>
+                <th>Имя пользователя</th>
+                <th>Электронная почта</th>
+                <th>Дата регистрации</th>
+                <th>Админ</th>
+            </tr>
 
-        {% for i in list_of_users %}
-        <tr>
+            {% for i in list_of_users %}
+                <tr>
 
-            <td>{{ i.id }}</td>
-            <td>{{ i.name }}</td>
-            <td>{{ i.email }}</td>
-            <td>{{ i.registration_date }}</td>
+                    <td>{{ i.id }}</td>
+                    <td>{{ i.name }}</td>
+                    <td>{{ i.email }}</td>
+                    <td>{{ i.registration_date }}</td>
 
-            {% if i.is_admin %}
-            <td class="admin-setting positive"
-                onclick="window.location.href='/admin_setting/remove/{{ i.id }}'">Да
-            </td>
-            {% else %}
-            <td class="admin-setting negative"
-                onclick="window.location.href='/admin_setting/add/{{ i.id }}'">Нет
-            </td>
-            {% endif %}
+                    {% if i.is_admin %}
+                        <td class="admin-setting positive"
+                            onclick="window.location.href='/admin_setting/remove/{{ i.id }}'">Да
+                        </td>
+                    {% else %}
+                        <td class="admin-setting negative"
+                            onclick="window.location.href='/admin_setting/add/{{ i.id }}'">Нет
+                        </td>
+                    {% endif %}
 
-        </tr>
-        {% endfor %}
+                </tr>
+            {% endfor %}
 
-        </tbody>
+            </tbody>
 
-    </table>
+        </table>
 
-</div>
+    </div>
 
 {% endblock %}

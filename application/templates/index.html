@@ -1,150 +1,151 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div id="content" class="arimolite-primary">
-    <div class="main-contaier">
-        <div class="container">
-            <div class="row wrapper-main-content">
-                <div class="has-sidebar col-md-12 col-lg-8 col-xl-9">
-                    <div class="arimolite-blogs blog-grid colorful-link">
-                        <div class="row">
-                            {% for item in places %}
-                            {% set article_category =
+    <div id="content" class="arimolite-primary">
+        <div class="main-contaier">
+            <div class="container">
+                <div class="row wrapper-main-content">
+                    <div class="has-sidebar col-md-12 col-lg-8 col-xl-9">
+                        <div class="arimolite-blogs blog-grid colorful-link">
+                            <div class="row">
+                                {% for item in places %}
+                                    {% set article_category =
                             category_list.filter_by(id=item.article_category_id).first().name_of_category %}
-                            <article
-                                    class="col-md-6 col-lg-6 post type-post status-publish format-standard has-post-thumbnail">
-                                <div class="post-inner">
+                                    <article
+                                            class="col-md-6 col-lg-6 post type-post status-publish format-standard has-post-thumbnail">
+                                        <div class="post-inner">
 
-                                    <div class="post-header">
-                                        <div class="post-format">
-                                            <a class="child post-image"
-                                               style="background-image: url({{ item.thumbnail_img }});"
-                                               href="/article/{{item.id}}"
-                                               title="{{ item.title }}"></a>
-                                        </div>
-                                    </div>
-
-                                    <div class="post-info">
-                                        {% if article_category %}
-                                        <div class="post-cats">
-                                            <i class="fas fa-bookmark colorful-icon bookmark-tag-text"></i>
-                                            <a href="/category/{{item.article_category_id}}" title="Категория">{{
-                                                article_category }}</a>
-                                        </div>
-                                        {% endif %}
-
-                                        <h3 class="post-title"><a
-                                                href="/article/{{ item.id }}">{{ item.title }}</a>
-                                        </h3>
-
-                                        <div class="post-map-params info-font">
-
-                                            {% set place_coords_id, copy_tooltip_id =
-                                            'Place-coords-{0}'.format(loop.index), 'copyTooltip-{0}'.format(loop.index)
-                                            %}
-
-                                            <div class="coords-of-place">
-
-                                                <svg class="scope" xmlns="http://www.w3.org/2000/svg" width="24"
-                                                     height="24"
-                                                     viewBox="0 0 24 24">
-                                                    <path fill="#d7d7d7" fill-rule="evenodd"
-                                                          d="M11.755 3h.49c.413 0 .58.046.743.134.163.087.291.215.378.378.088.163.134.33.134.743v3.49c0 .413-.046.58-.134.743a.909.909 0 0 1-.378.378c-.163.088-.33.134-.743.134h-.49c-.413 0-.58-.046-.743-.134a.909.909 0 0 1-.378-.378c-.088-.163-.134-.33-.134-.743v-3.49c0-.413.046-.58.134-.743a.909.909 0 0 1 .378-.378c.163-.088.33-.134.743-.134zm0 12h.49c.413 0 .58.046.743.134.163.087.291.215.378.378.088.163.134.33.134.743v3.49c0 .413-.046.58-.134.743a.909.909 0 0 1-.378.378c-.163.088-.33.134-.743.134h-.49c-.413 0-.58-.046-.743-.134a.909.909 0 0 1-.378-.378c-.088-.163-.134-.33-.134-.743v-3.49c0-.413.046-.58.134-.743a.909.909 0 0 1 .378-.378c.163-.088.33-.134.743-.134zm-7.5-4.5h3.49c.413 0 .58.046.743.134.163.087.291.215.378.378.088.163.134.33.134.743v.49c0 .413-.046.58-.134.743a.909.909 0 0 1-.378.378c-.163.088-.33.134-.743.134h-3.49c-.413 0-.58-.046-.743-.134a.909.909 0 0 1-.378-.378c-.088-.163-.134-.33-.134-.743v-.49c0-.413.046-.58.134-.743a.909.909 0 0 1 .378-.378c.163-.088.33-.134.743-.134zm12 0h3.49c.413 0 .58.046.743.134.163.087.291.215.378.378.088.163.134.33.134.743v.49c0 .413-.046.58-.134.743a.909.909 0 0 1-.378.378c-.163.088-.33.134-.743.134h-3.49c-.413 0-.58-.046-.743-.134a.909.909 0 0 1-.378-.378c-.088-.163-.134-.33-.134-.743v-.49c0-.413.046-.58.134-.743a.909.909 0 0 1 .378-.378c.163-.088.33-.134.743-.134z"></path>
-                                                </svg>
-                                                <span id="{{ place_coords_id }}">{{item.coords}}</span>
-
+                                            <div class="post-header">
+                                                <div class="post-format">
+                                                    <a class="child post-image"
+                                                       style="background-image: url({{ item.thumbnail_img }});"
+                                                       href="/article/{{ item.id }}"
+                                                       title="{{ item.title }}"></a>
+                                                </div>
                                             </div>
 
-                                            <div class="copy-coords-tooltip">
-                                                <button type="submit"
-                                                        class="btn btn-link btn-copy-coords info-font copy-button"
-                                                        onclick="Copy_coords('{{ place_coords_id }}',
-                                                         '{{ copy_tooltip_id }}')"
-                                                        onmouseout="Show_tooltip('{{ copy_tooltip_id }}')">
+                                            <div class="post-info">
+                                                {% if article_category %}
+                                                    <div class="post-cats">
+                                                        <i class="fas fa-bookmark colorful-icon bookmark-tag-text"></i>
+                                                        <a href="/category/{{ item.article_category_id }}"
+                                                           title="Категория">{{ article_category }}</a>
+                                                    </div>
+                                                {% endif %}
+
+                                                <h3 class="post-title"><a
+                                                        href="/article/{{ item.id }}">{{ item.title }}</a>
+                                                </h3>
+
+                                                <div class="post-map-params info-font">
+
+                                                    {% set place_coords_id, copy_tooltip_id =
+                                            'Place-coords-{0}'.format(loop.index), 'copyTooltip-{0}'.format(loop.index) %}
+
+                                                    <div class="coords-of-place">
+
+                                                        <svg class="scope" xmlns="http://www.w3.org/2000/svg" width="24"
+                                                             height="24"
+                                                             viewBox="0 0 24 24">
+                                                            <path fill="#d7d7d7" fill-rule="evenodd"
+                                                                  d="M11.755 3h.49c.413 0 .58.046.743.134.163.087.291.215.378.378.088.163.134.33.134.743v3.49c0 .413-.046.58-.134.743a.909.909 0 0 1-.378.378c-.163.088-.33.134-.743.134h-.49c-.413 0-.58-.046-.743-.134a.909.909 0 0 1-.378-.378c-.088-.163-.134-.33-.134-.743v-3.49c0-.413.046-.58.134-.743a.909.909 0 0 1 .378-.378c.163-.088.33-.134.743-.134zm0 12h.49c.413 0 .58.046.743.134.163.087.291.215.378.378.088.163.134.33.134.743v3.49c0 .413-.046.58-.134.743a.909.909 0 0 1-.378.378c-.163.088-.33.134-.743.134h-.49c-.413 0-.58-.046-.743-.134a.909.909 0 0 1-.378-.378c-.088-.163-.134-.33-.134-.743v-3.49c0-.413.046-.58.134-.743a.909.909 0 0 1 .378-.378c.163-.088.33-.134.743-.134zm-7.5-4.5h3.49c.413 0 .58.046.743.134.163.087.291.215.378.378.088.163.134.33.134.743v.49c0 .413-.046.58-.134.743a.909.909 0 0 1-.378.378c-.163.088-.33.134-.743.134h-3.49c-.413 0-.58-.046-.743-.134a.909.909 0 0 1-.378-.378c-.088-.163-.134-.33-.134-.743v-.49c0-.413.046-.58.134-.743a.909.909 0 0 1 .378-.378c.163-.088.33-.134.743-.134zm12 0h3.49c.413 0 .58.046.743.134.163.087.291.215.378.378.088.163.134.33.134.743v.49c0 .413-.046.58-.134.743a.909.909 0 0 1-.378.378c-.163.088-.33.134-.743.134h-3.49c-.413 0-.58-.046-.743-.134a.909.909 0 0 1-.378-.378c-.088-.163-.134-.33-.134-.743v-.49c0-.413.046-.58.134-.743a.909.909 0 0 1 .378-.378c.163-.088.33-.134.743-.134z"></path>
+                                                        </svg>
+                                                        <span id="{{ place_coords_id }}">{{ item.coords }}</span>
+
+                                                    </div>
+
+                                                    <div class="copy-coords-tooltip">
+                                                        <button type="submit"
+                                                                class="btn btn-link btn-copy-coords info-font copy-button"
+                                                                onclick="Copy_coords('{{ place_coords_id }}',
+                                                                        '{{ copy_tooltip_id }}')"
+                                                                onmouseout="Show_tooltip('{{ copy_tooltip_id }}')">
                                                     <span class="tooltip-text"
                                                           id="{{ copy_tooltip_id }}">Скопировать</span><i
-                                                        class="fa fa-copy colorful-icon"></i>
-                                                </button>
-                                            </div>
+                                                                class="fa fa-copy colorful-icon"></i>
+                                                        </button>
+                                                    </div>
 
-                                        </div>
+                                                </div>
 
 
-                                        <p class="article-font">
+                                                <p class="article-font">
 
-                                            {% set formatted_text = ' '.join(item.text.replace(img_tag,
+                                                    {% set formatted_text = ' '.join(item.text.replace(img_tag,
                                             '').replace(group_img_tag, '').replace(img_group_tag,
                                             '').replace(img_group_closing_tag, '').replace('<br>',
                                             '').split()[:30]).strip() %}
 
-                                            {% if '!?:;".,'.find(formatted_text[-1]) != -1 %}
-                                            {% set preview_text = formatted_text[:-1] + '...' %}
-                                            {% else %}
-                                            {% set preview_text = formatted_text + '...' %}
-                                            {% endif %}
+                                                    {% if '!?:;".,'.find(formatted_text[-1]) != -1 %}
+                                                        {% set preview_text = formatted_text[:-1] + '...' %}
+                                                    {% else %}
+                                                        {% set preview_text = formatted_text + '...' %}
+                                                    {% endif %}
 
-                                            {{preview_text}}
+                                                    {{ preview_text }}
 
-                                        </p>
-                                        {% if current_user.is_admin %}
-                                        <div class="text-right actions">
-                                            <a href="/edit_article/{{ item.id }}" title="Изменить статью"><i
-                                                    class="fa fa-pen"></i></a>
-                                            <a href="/delete_article/{{ item.id }}" title="Удалить статью"><i
-                                                    class="fa fa-trash"></i></a>
+                                                </p>
+                                                {% if current_user.is_admin %}
+                                                    <div class="text-right actions">
+                                                        <a href="/edit_article/{{ item.id }}" title="Изменить статью"><i
+                                                                class="fa fa-pen"></i></a>
+                                                        <a href="/delete_article/{{ item.id }}"
+                                                           title="Удалить статью"><i
+                                                                class="fa fa-trash"></i></a>
+                                                    </div>
+                                                {% endif %}
+                                            </div>
                                         </div>
-                                        {% endif %}
-                                    </div>
-                                </div>
 
-                            </article>
-
-                            {% endfor %}
-
-                            {% if current_user.is_admin %}
-                            <div class="actions">
-                                <a href="/add_article" title="Добавить статью"
-                                   class="topbutton text-center article-add"><i
-                                        class="fa fa-plus-circle"></i></a>
-                                <a href="/categories" title="Список категорий"
-                                   class="topbutton text-center category-action"><i class="fas fa-bookmark"></i></a>
-                            </div>
-                            {% endif %}
-                        </div>
-
-
-                        <!-- Pagination -->
-                        <nav>
-                            <ul class="pagination">
-                                {% for i, j in pages_info %}
-
-                                {% if j is none %}
-                                <li class="page-item active"><span class="page-link">{{ i }}</span></li>
-                                {% elif not j %}
-                                <li class="page-item disabled"><span class="page-link">{{ i }}</span></li>
-                                {% elif j %}
-                                {% if i == '»' %}
-                                <li class="page-item"><a class="page-link"
-                                                         href="{{ '{0}/{1}'.format(href, page_id + 1) }}">{{ i }}</a>
-                                </li>
-                                {% elif i == '«' %}
-                                <li class="page-item"><a class="page-link"
-                                                         href="{{ '{0}/{1}'.format(href, page_id - 1) }}">{{ i }}</a>
-                                </li>
-                                {% else %}
-                                <li class="page-item"><a class="page-link" href="{{ '{0}/{1}'.format(href, i) }}">{{ i
-                                    }}</a></li>
-                                {% endif %}
-                                {% endif %}
+                                    </article>
 
                                 {% endfor %}
-                            </ul>
-                        </nav>
-                        <!-- ---------- -->
+
+                                {% if current_user.is_admin %}
+                                    <div class="actions">
+                                        <a href="/add_article" title="Добавить статью"
+                                           class="topbutton text-center article-add"><i
+                                                class="fa fa-plus-circle"></i></a>
+                                        <a href="/categories" title="Список категорий"
+                                           class="topbutton text-center category-action"><i class="fas fa-bookmark"></i></a>
+                                    </div>
+                                {% endif %}
+                            </div>
+
+
+                            <!-- Pagination -->
+                            <nav>
+                                <ul class="pagination">
+                                    {% for i, j in pages_info %}
+
+                                        {% if j is none %}
+                                            <li class="page-item active"><span class="page-link">{{ i }}</span></li>
+                                        {% elif not j %}
+                                            <li class="page-item disabled"><span class="page-link">{{ i }}</span></li>
+                                        {% elif j %}
+                                            {% if i == '»' %}
+                                                <li class="page-item"><a class="page-link"
+                                                                         href="{{ '{0}/{1}'.format(href, page_id + 1) }}">{{ i }}</a>
+                                                </li>
+                                            {% elif i == '«' %}
+                                                <li class="page-item"><a class="page-link"
+                                                                         href="{{ '{0}/{1}'.format(href, page_id - 1) }}">{{ i }}</a>
+                                                </li>
+                                            {% else %}
+                                                <li class="page-item"><a class="page-link"
+                                                                         href="{{ '{0}/{1}'.format(href, i) }}">{{ i }}</a>
+                                                </li>
+                                            {% endif %}
+                                        {% endif %}
+
+                                    {% endfor %}
+                                </ul>
+                            </nav>
+                            <!-- ---------- -->
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 {% endblock %}

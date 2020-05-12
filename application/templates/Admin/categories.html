@@ -1,38 +1,39 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="container category-table text-center">
-    <h2>Список категорий</h2>
-    <table>
+    <div class="container category-table text-center">
+        <h2>Список категорий</h2>
+        <table>
 
-        <tbody class="blue-link">
+            <tbody class="blue-link">
 
-        <tr>
-            <th>ID</th>
-            <th>Название категории</th>
-            <th><a href="/add_category" title="Добавить категорию" style="padding-bottom: 1px"><i class="fa fa-plus-circle" ></i></a></th>
-        </tr>
+            <tr>
+                <th>ID</th>
+                <th>Название категории</th>
+                <th><a href="/add_category" title="Добавить категорию" style="padding-bottom: 1px"><i
+                        class="fa fa-plus-circle"></i></a></th>
+            </tr>
 
-        {% for i in list_of_categories %}
-        <tr>
-            <td>{{ i.id }}</td>
-            <td>{{ i.name_of_category }}</td>
-            <td class="category-actions">
-                <a href="/edit_category/{{ i.id }}"><i class="fa fa-pen"></i></a>
-                <a href="/delete_category/{{ i.id }}" class="delete-category-action"><i class="fa fa-trash"></i></a>
-            </td>
-        </tr>
-        {% endfor %}
+            {% for i in list_of_categories %}
+                <tr>
+                    <td>{{ i.id }}</td>
+                    <td>{{ i.name_of_category }}</td>
+                    <td class="category-actions">
+                        <a href="/edit_category/{{ i.id }}"><i class="fa fa-pen"></i></a>
+                        <a href="/delete_category/{{ i.id }}" class="delete-category-action"><i class="fa fa-trash"></i></a>
+                    </td>
+                </tr>
+            {% endfor %}
 
-        </tbody>
+            </tbody>
 
-    </table>
+        </table>
 
-    <div class="actions colorful-link">
-        <a href="/add_category" title="Добавить категорию" class="topbutton text-center category-action">
-            <i class="fa fa-plus-circle"></i></a>
+        <div class="actions colorful-link">
+            <a href="/add_category" title="Добавить категорию" class="topbutton text-center category-action">
+                <i class="fa fa-plus-circle"></i></a>
+        </div>
+
     </div>
-
-</div>
 
 {% endblock %}
