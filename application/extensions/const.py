@@ -8,3 +8,5 @@ max_num_of_articles_per_page = 8
 
 CLIENT_ID = '88f8766cc5ea144'
 SAVE_DIR = 'application/static/img/temp_imgs/'
+
+lonlat_factor = 0.00049866937, 0.00171661376

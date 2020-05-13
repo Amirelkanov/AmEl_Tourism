@@ -9,6 +9,7 @@ from flask import Blueprint, render_template
 from ..extensions.img_tags import img_tag, group_img_tag, img_group_tag, img_group_closing_tag
 from ..extensions.is_admin_decorator import is_user_admin
 from ..data.articles import Article, Category
+from ..extensions.lonlat_converting import lonlat_to_bounds
 from ..page_navigation.pagination import PageNavigation
 
 main = Blueprint('main', __name__)
@@ -48,6 +49,7 @@ def article(article_id):
     rendered_page = BeautifulSoup(render_template('article.html',
                                                   title=article_info.title, article_info=article_info,
                                                   category_list=Category.query,
+                                                  bounds_of_place=lonlat_to_bounds(article_info.coords.split(', ')),
                                                   related_posts=related_posts), 'lxml')
 
     article_images, article_text = article_info.article_imgs.split(', '), article_info.text

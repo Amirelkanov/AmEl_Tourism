@@ -1,0 +1,1170 @@
+.arimolite-primary {
+    padding: 70px 0;
+}
+
+.page-content.has-sidebar .sidebar-left {
+    order: 1;
+}
+
+.main-page-content.main-right {
+    order: 2;
+}
+
+/*--------------------------
+		1.HEADER
+---------------------------*/
+/*Top bar*/
+.header-main {
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 0;
+}
+
+.header-main .search-header {
+    display: -webkit-flex;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.social-network a {
+    width: 40px;
+    height: 40px;
+    line-height: 38px;
+    text-align: center;
+    border: 1px solid #eee;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+    margin: 0 5px;
+    display: inline-block;
+    color: #111;
+}
+
+.social-network a:first-child {
+    margin-left: 0;
+}
+
+.social-network a:last-child {
+    margin-right: 0;
+}
+
+.header-social a {
+    margin: 0 2px
+}
+
+.search-header .searchform {
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    -o-border-radius: 25px;
+    border-radius: 25px;
+    max-width: 280px;
+    overflow: hidden;
+}
+
+.search-header .searchform input[type="text"] {
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    -o-border-radius: 25px;
+    border-radius: 25px;
+}
+
+.searchform {
+    display: -webkit-flex;
+    display: flex;
+    border: 1px solid #eee;
+    justify-content: space-between;
+}
+
+.searchform input[type="text"] {
+    border: none;
+    padding: 5px 15px;
+    min-width: 0;
+    width: auto;
+}
+
+.searchform .button-search {
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    background: transparent;
+    color: #111;
+}
+
+/*Logo*/
+.arimolite-logo {
+    text-align: center;
+}
+
+.arimolite-logo h1, .arimolite-logo h2 {
+    margin-bottom: 0;
+}
+
+.arimolite-logo {
+    max-width: 250px;
+}
+
+.site-title {
+    margin-bottom: 0;
+}
+
+.site-title a {
+    color: inherit;
+}
+
+/*Main Menu*/
+.header-content {
+    border-top: 1px solid #111;
+    border-bottom: 1px solid #111;
+    text-align: center;
+}
+
+.arimolite-main-menu ul {
+    margin-bottom: 0;
+}
+
+ul.arimolite-main-menu, div.arimolite-main-menu > ul {
+    padding: 0;
+    margin: 0;
+}
+
+.arimolite-main-menu li {
+    -webkit-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+    position: relative;
+}
+
+ul.arimolite-main-menu > li,
+div.arimolite-main-menu > ul > li {
+    display: inline-block;
+    font-size: 14px;
+}
+
+.arimolite-main-menu > li > a,
+div.arimolite-main-menu > ul > li > a {
+    font-family: 'Poppins', serif;
+    font-weight: 500;
+    color: #111;
+    text-transform: uppercase;
+    line-height: 30px;
+    display: inline-block;
+    padding: 15px 1.5em;
+    font-size: 13px;
+}
+
+ul.arimolite-main-menu > li:first-child,
+div.arimolite-main-menu > ul > li:first-child {
+    margin-left: 0
+}
+
+ul.arimolite-main-menu > li:last-child,
+div.arimolite-main-menu > ul > li:last-child {
+    margin-right: 0
+}
+
+.arimolite-main-menu a {
+    color: inherit;
+}
+
+.arimolite-main-menu .sub-menu, .arimolite-main-menu .children {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transform: scaleY(0);
+    -ms-transform: scaleY(0);
+    -o-transform: scaleY(0);
+    transform: scaleY(0);
+    -webkit-transform-origin: center top;
+    -moz-transform-origin: center top;
+    -ms-transform-origin: center top;
+    -o-transform-origin: center top;
+    transform-origin: center top;
+    -webkit-transition: all 0.5s ease 0s;
+    -o-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s;
+    background: #fff;
+    -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    padding: 0;
+    min-width: 200px;
+    z-index: 50;
+    text-align: left;
+    border-top: 2px solid #84a220;
+    height: 0;
+}
+
+.arimolite-main-menu .is-focus > .sub-menu,
+.arimolite-main-menu .is-hover > .sub-menu,
+.arimolite-main-menu .show-submenu > .sub-menu,
+.arimolite-main-menu .is-focus > .children,
+.arimolite-main-menu .is-hover > .children,
+.arimolite-main-menu .show-submenu > .children {
+    opacity: 1;
+    visibility: visible;
+    height: auto;
+    -webkit-transform: scaleY(1);
+    -ms-transform: scaleY(1);
+    -o-transform: scaleY(1);
+    transform: scaleY(1);
+}
+
+.arimolite-main-menu .sub-menu .sub-menu,
+.arimolite-main-menu .children .children {
+    top: 0;
+    left: 100%;
+}
+
+.arimolite-main-menu .sub-menu li,
+.arimolite-main-menu .children li {
+    list-style: none;
+    display: block;
+    white-space: nowrap;
+}
+
+.arimolite-main-menu .sub-menu li a,
+.arimolite-main-menu .children li a {
+    padding: 1em 1.5em;
+    border-bottom: 1px solid #eee;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.arimolite-main-menu .sub-menu li:last-child > a,
+.arimolite-main-menu .children li:last-child > a {
+    border-bottom: none;
+}
+
+
+.arimolite-main-menu li.menu-item-has-children > a::after,
+.arimolite-main-menu li.page_item_has_children > a::after {
+    display: inline-block;
+    margin-left: .255em;
+    vertical-align: .255em;
+    content: "";
+    border-top: .3em solid;
+    border-right: .3em solid transparent;
+    border-bottom: 0;
+    border-left: .3em solid transparent;
+}
+
+/*--------------------------------
+		2.MAIN CONTAINER
+---------------------------------*/
+/*-------- 2.3 Page -----*/
+.wrapper-main-content .has-sidebar {
+    padding-right: 50px;
+}
+
+.page-title {
+    margin-bottom: 40px
+}
+
+.page-title:after {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 2px;
+    background: #111;
+    margin: 15px auto 0;
+}
+
+.page-image {
+    margin-bottom: 30px;
+}
+
+.page-excerpt ul {
+    margin-bottom: 30px
+}
+
+.wpcf7-form .wpcf7-form-control-wrap {
+    margin-bottom: 30px;
+    display: inline-block;
+    width: 100%;
+}
+
+.arimolite-page-error {
+    text-align: center;
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 70px 0;
+}
+
+/*-------- 2.4 BLog -----*/
+.post-title a {
+    color: inherit;
+}
+
+.post-title {
+    margin-bottom: 10px;
+    font-size: 35px;
+}
+
+.post-title a {
+    color: inherit;
+}
+
+.arimolite-blogs .post {
+    margin-bottom: 50px;
+}
+
+/*Post date, post format*/
+.post-header {
+    position: relative;
+}
+
+.post-header {
+    margin-bottom: 30px;
+}
+
+.post .post-format a.post-image {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: block;
+    background-color: #f5f5f5;
+}
+
+.post .post-format a.post-image:after {
+    content: "";
+    width: 100%;
+    display: block;
+    padding-top: 68%;
+}
+
+.post.format-audio .post-format,
+.post.format-video .post-format {
+    position: relative;
+}
+
+.post.format-audio .post-format a:before,
+.post.format-video .post-format a:before {
+    font-family: 'Font Awesome 5 Free', serif;
+    color: #fff;
+    font-size: 16px;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-weight: 900;
+    background: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.post.format-audio .post-format a:before {
+    content: "\f001";
+}
+
+.post.format-video .post-format a:before {
+    content: "\f03d";
+}
+
+.arimolite-post-audio {
+    position: relative;
+}
+
+.post.has-post-thumbnail .arimolite-post-audio .post-audio {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 0
+}
+
+.post.format-audio .post-format.arimolite-post-audio a:before {
+    display: none;
+}
+
+.arimolite-primary .post.format-audio .arimolite-post-audio .mejs-container {
+    width: 100% !important;
+}
+
+.arimolite-primary .post.format-audio .arimolite-post-audio .mejs-controls:not([style*="display: none"]) {
+    background: none;
+}
+
+.arimolite-primary .post.format-audio .arimolite-post-audio .mejs-button button:hover,
+.arimolite-primary .post.format-audio .arimolite-post-audio .mejs-button button:focus {
+    background-color: transparent;
+}
+
+.arimolite-primary .post.format-audio .arimolite-post-audio .mejs-time {
+    font-size: 13px;
+}
+
+.arimolite-primary .post.format-audio .arimolite-post-audio .mejs-container .mejs-controls > .mejs-time-rail .mejs-time-total,
+.arimolite-primary .post.format-audio .arimolite-post-audio .mejs-container .mejs-time-loaded {
+    height: 6px;
+    overflow: hidden;
+}
+
+.arimolite-primary .post.format-audio .arimolite-post-audio .mejs-container .mejs-horizontal-volume-total {
+    height: 6px;
+    top: 16px;
+}
+
+.arimolite-primary .post.format-audio .arimolite-post-audio .mejs-container .mejs-time-rail {
+    padding-top: 12px
+}
+
+.arimolite-primary .post.format-audio .arimolite-post-audio .mejs-container .mejs-controls .mejs-time-rail .mejs-time-current {
+    background: #111;
+}
+
+/*Post meta*/
+.post-meta {
+    margin-bottom: 25px
+}
+
+.post-meta .arimolite-like-post {
+    font-size: 14px;
+}
+
+.post-meta div {
+    display: inline-block;
+    padding-right: 15px;
+    font-size: 14px;
+}
+
+.post-meta i {
+    margin-right: 6px;
+    font-size: 12px;
+}
+
+.post-meta div:last-child {
+    padding-right: 0;
+}
+
+.post-meta a {
+    color: inherit;
+}
+
+/*Post share, tags, cats*/
+.post-footer {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 25px;
+}
+
+.post-cats {
+    margin-bottom: 10px;
+}
+
+.post-tags a, .post-cats a {
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #111;
+    font-weight: 500;
+}
+
+.post-share a {
+    display: inline-block;
+    margin-left: 20px;
+    font-size: 14px;
+}
+
+.post-share span {
+    color: #111;
+    font-weight: 500;
+}
+
+/*Blog Grid - Masonry*/
+.blog-grid .post-title,
+.blog-masonry .post-title {
+    font-size: 20px;
+}
+
+.blog-grid .post .post-format a::after,
+.blog-masonry .post .post-format a::after {
+    padding-top: 75%
+}
+
+.blog-masonry .post:nth-child(2n) .post-format a::after {
+    padding-top: 115%
+}
+
+/*Blog List*/
+.blog-list .post {
+    margin-bottom: 50px;
+}
+
+.blog-list .post-title {
+    font-size: 28px;
+}
+
+.blog-list .post-inner {
+    overflow: hidden;
+}
+
+.blog-list .post-header {
+    width: 370px;
+    float: left;
+    margin-right: 30px;
+    margin-bottom: 0;
+}
+
+.blog-list .post-info {
+    overflow: hidden;
+}
+
+.blog-list .post .post-format a::after,
+.post-list.post .post-format a::after {
+    padding-top: 82%
+}
+
+/*Pagination*/
+.pagination .page-numbers {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #ddd;
+    color: #111;
+    line-height: 38px;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.pagination .page-numbers.dots {
+    border: none;
+    background: none;
+    color: #111;
+}
+
+/*----------2.5 Single Post----------*/
+.post-related .post-title {
+    font-size: 16px;
+}
+
+.post-related .post-cats {
+    margin-bottom: 10px
+}
+
+.arimolite-single-post .post-footer {
+    padding: 10px 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.post-related, .comment-respond, .comments-area {
+    margin-top: 50px;
+}
+
+.post-related-title, .comment-reply-title, .comments-title {
+    font-size: 26px;
+}
+
+.comment-form .input-form, .comment-form .textarea-form {
+    margin-bottom: 30px
+}
+
+.comment-form input[type="checkbox"] {
+    margin-right: 10px
+}
+
+.comment-list {
+    padding: 0;
+    list-style: none;
+}
+
+.comment-body {
+    margin-bottom: 40px;
+    overflow: hidden;
+}
+
+.comment-body .comment-author {
+    float: left;
+    margin-right: 20px;
+}
+
+.comment-body .comment-content {
+    overflow: hidden;
+}
+
+.comment-content .author-name {
+    font-size: inherit;
+    display: inline-block;
+    margin-bottom: 0;
+}
+
+.comment-content .date-comment {
+    font-size: 12px;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.comment-content .date-comment a {
+    color: inherit;
+}
+
+.comment-content .reply {
+    float: right;
+}
+
+.comment-content .reply .comment-reply-link:after {
+    content: "\f3e5";
+    display: inline-block;
+    margin-left: 5px;
+    font-family: 'Font Awesome 5 Free', serif;
+    font-weight: 900;
+}
+
+.comment-content .comment-text {
+    margin-top: 15px;
+}
+
+.comment-content .comment-text p:last-child {
+    margin-bottom: 0
+}
+
+.comment-list ol.children {
+    list-style: none;
+}
+
+.comment-form .input-form,
+.comment-form .textarea-form {
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+/*--------- 2.6 Widget -----------*/
+.widget-title {
+    text-transform: uppercase;
+    font-size: 18px;
+}
+
+.widget ul {
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.widget ul ul, .widget ol ol {
+    padding-left: 20px
+}
+
+.widget ul li {
+    list-style: none;
+}
+
+.wpb_widgetised_column .widget,
+.sidebar .widget {
+    margin-bottom: 50px;
+}
+
+.wpb_widgetised_column .widget:last-child, .sidebar .widget:last-child {
+    margin-bottom: 0
+}
+
+.widget_recent_entries li a, .widget_archive li a, .widget_recent_comments li a,
+.widget_categories li a, .widget_meta li a, .widget_pages li a, .widget_nav_menu li a {
+    color: inherit;
+    display: inline-block;
+}
+
+.widget_recent_entries li, .widget_archive li,
+.widget_categories li, .widget_meta li, .widget_pages li, .widget_nav_menu li,
+.widget_recent_comments li {
+    line-height: 40px;
+    border-bottom: 1px solid #eee;
+}
+
+.widget_recent_entries li:last-child, .widget_archive li:last-child,
+.widget_categories li:last-child, .widget_meta li:last-child, .widget_pages li:last-child,
+.widget_nav_menu li:last-child, .widget_recent_comments li:last-child {
+    border-bottom: none;
+}
+
+.widget_rss li {
+    margin-bottom: 20px;
+}
+
+.widget_rss li cite:before {
+    content: "";
+    width: 20px;
+    height: 1px;
+    background: #999;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.widget_rss li .rsswidget {
+    display: block;
+}
+
+.widget_rss li .rss-date {
+    font-style: italic;
+}
+
+.tagcloud a {
+    font-size: 13px !important;
+    color: inherit;
+    border: 1px solid #eee;
+    padding: 3px 20px;
+    border-radius: 25px;
+    margin: 0 5px 10px 0;
+    display: inline-block;
+}
+
+.widget_media_gallery .gallery {
+    margin: 0 -5px
+}
+
+.widget_media_gallery .gallery .gallery-item {
+    margin-bottom: 0;
+    border: none;
+    padding: 0 5px;
+}
+
+.widget_media_gallery .gallery .gallery-item img {
+    border: none !important;
+}
+
+/*Category Image*/
+.list-cats-image li {
+    list-style: none;
+    margin-bottom: 20px;
+    padding: 20px;
+    color: #fff;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+}
+
+.list-cats-image li:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.list-cats-image .cat-count {
+    background: #111;
+    color: #fff;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    z-index: 2;
+}
+
+.list-cats-image .cat-name {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+/*widget-blog-list*/
+.widget-blog-list .post {
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.widget-blog-list .post:last-child {
+    margin-bottom: 0;
+}
+
+.widget-blog-list .post-title {
+    font-size: 14px;
+    letter-spacing: 0;
+    text-transform: capitalize;
+}
+
+.widget-blog-list .post-image {
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 0;
+    position: relative;
+    width: 110px;
+}
+
+.widget-blog-list .post-content {
+    overflow: hidden;
+}
+
+.widget-blog-list .big-post .post-image {
+    float: none;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.widget-blog-list .big-post .post-content {
+    display: block;
+    width: 100%;
+}
+
+.widget-blog-list .post-image .number {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    background: #111;
+    color: #fff;
+    text-align: center;
+    font-size: 12px;
+}
+
+/*About Me */
+.about-image {
+    margin-bottom: 25px;
+}
+
+.ab-signature {
+    text-align: right;
+    margin-top: -10px
+}
+
+/*Newsletter*/
+.form-newsletter input[type="email"] {
+    margin-bottom: 20px;
+}
+
+.arimolite-newsletter {
+    text-align: center;
+    padding: 25px 20px;
+    background: #eee;
+}
+
+.arimolite-newsletter button[type="submit"] {
+    width: 100%
+}
+
+/*-------------------------------
+			FOOTER
+-------------------------------*/
+.footer-ins .insta-gallery-feed .insta-gallery-actions {
+    margin: 0;
+}
+
+.footer-ins .insta-gallery-image-wrap .insta-gallery-image-mask {
+    position: relative;
+}
+
+.footer-ins .insta-gallery-image-wrap .insta-gallery-image-mask:after {
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    bottom: 20px;
+    right: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.ab-signature img {
+    max-width: 120px
+}
+
+.footer-ins .widget-title {
+    text-align: center;
+    padding: 30px 0;
+    margin-bottom: 0;
+}
+
+#arimolite-footer {
+    border-top: 1px solid #eee;
+}
+
+.logo-footer img {
+    max-width: 200px;
+}
+
+.logo-footer {
+    text-align: center;
+}
+
+.logo-footer .arimolite-logo {
+    margin: 0 auto;
+}
+
+.main-footer {
+    padding: 45px 0 50px;
+    text-align: center;
+}
+
+.footer-copyright {
+    background: #f5f5f5;
+    padding: 30px 0;
+    text-align: center;
+    border-top: 1px solid #eee;
+}
+
+.tag-line {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #666;
+    line-height: normal;
+    display: block;
+    text-transform: none;
+    font-weight: 300;
+    letter-spacing: 0
+}
+
+.footer-social {
+    margin-top: 20px;
+}
+
+/*--------------------------------
+		4.RESPONSIVE
+--------------------------------*/
+/*MENU MOBILE*/
+.body-overlay {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: -1;
+}
+
+.open-menumobile .body-overlay {
+    opacity: 1;
+    z-index: 2;
+}
+
+div.icon-touch {
+    margin-left: 15px;
+    background: #eee;
+    padding: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    border-radius: 10px;
+}
+
+.menu-touch span {
+    width: 20px;
+    height: 2px;
+    background: #fff;
+    margin: 3px 0;
+    display: block;
+}
+
+.open-menutouch .body-overlay {
+    opacity: 1;
+    z-index: 20;
+}
+
+@media (min-width: 1330px) {
+    .container {
+        max-width: 1300px
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+    .post-tags {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .wrapper-main-content .has-sidebar {
+        padding-right: 30px;
+    }
+
+    .header-social a {
+        margin: 0
+    }
+
+    .search-header .searchform {
+        max-width: 250px
+    }
+
+    .arimolite-logo {
+        max-width: 200px
+    }
+}
+
+@media (max-width: 992px) {
+    .header {
+        border-bottom: 1px solid #eee;
+    }
+
+    .social-network.header-social {
+        display: none;
+    }
+
+    .header-main {
+        padding: 15px 0;
+    }
+
+    .header-content {
+        border: none;
+    }
+
+    .nav-main {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 320px;
+        height: 100vh;
+        overflow-y: auto;
+        background: #fff;
+        z-index: 999;
+        padding: 45px 20px;
+        opacity: 0;
+        -webkit-transform: translateX(-320px);
+        -ms-transform: translateX(-320px);
+        -o-transform: translateX(-320px);
+        transform: translateX(-320px);
+        -webkit-transition: all 0.3s ease 0s;
+        -o-transition: all 0.3s ease 0s;
+        transition: all 0.3s ease 0s;
+    }
+
+    .open-menutouch .nav-main {
+        opacity: 1;
+        -webkit-transform: translateX(0);
+        -ms-transform: translateX(0);
+        -o-transform: translateX(0);
+        transform: translateX(0);
+    }
+
+    .arimolite-main-menu {
+        text-align: left;
+    }
+
+    ul.arimolite-main-menu > li, div.arimolite-main-menu > ul > li {
+        display: block;
+    }
+
+    div.arimolite-main-menu > ul > li > a, ul.arimolite-main-menu > li > a {
+        display: -webkit-flex;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+        border-bottom: 1px solid #eee;
+    }
+
+    .arimolite-main-menu .sub-menu, .arimolite-main-menu .children {
+        position: relative;
+        border-top: none;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        padding-left: 20px;
+    }
+
+    .arimolite-main-menu .sub-menu li a, .arimolite-main-menu .children li a {
+        padding: 10px 0
+    }
+
+    .arimolite-primary {
+        padding: 40px 0 50px
+    }
+
+    .arimolite-logo img {
+        max-width: 200px
+    }
+
+    .search-header .searchform input[type="text"] {
+        max-width: 200px;
+    }
+
+    .arimolite-logo {
+        padding-bottom: 0
+    }
+
+    .sidebar {
+        margin-top: 50px;
+    }
+
+    .wrapper-main-content .has-sidebar {
+        padding-right: 15px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .promobox-item .image-promobox::before {
+        left: 15px;
+        top: 15px;
+        bottom: 15px;
+        right: 15px;
+    }
+
+    .promobox-item .title-promobox {
+        padding: 7px 15px
+    }
+
+    .promobox-item .image-promobox::after {
+        padding-top: 86%
+    }
+}
+
+@media (max-width: 768px) {
+    .page-content.has-sidebar .sidebar-left {
+        order: 2;
+    }
+
+    .main-page-content.main-right {
+        order: 1;
+    }
+}
+
+@media (max-width: 576px) {
+    .item-post-feature .post-info {
+        padding: 30px 35px;
+    }
+
+    .item-post-feature .post-image::after {
+        padding-top: 85%
+    }
+
+    .post-tags {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .header-main {
+        -webkit-flex-wrap: wrap;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .arimolite-logo {
+        margin-bottom: 15px;
+    }
+
+    .header-main .search-header {
+        justify-content: space-between;
+    }
+}

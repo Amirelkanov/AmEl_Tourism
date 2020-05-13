@@ -1,11 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
 
-
     <div id="content" class="arimolite-primary">
         <div class="main-container">
             <div class="container">
-                <div class="arimolite-single-post colorful-link">
+                <div class="arimolite-single-post">
 
                     {% set article_category =
                 category_list.filter_by(id=article_info.article_category_id).first().name_of_category %}
@@ -22,7 +21,7 @@
                             </div>
 
                             {% if current_user.is_admin %}
-                                <div class="actions text-right">
+                                <div class="actions text-right colorful-link">
                                     <a href="/edit_article/{{ article_info.id }}" title="Изменить статью"><i
                                             class="fa fa-pen"></i></a>
                                     <a href="/delete_article/{{ article_info.id }}" title="Удалить статью"><i
@@ -32,14 +31,22 @@
 
                             <div class="post-info">
                                 {% if article_category %}
-                                    <div class="post-cats"><i
+                                    <div class="post-cats colorful-link"><i
                                             class="fas fa-bookmark colorful-icon bookmark-tag-text"></i>
                                         <a href="/category/{{ article_info.article_category_id }}" title="Категория"
                                            rel="category tag">{{ article_category }}</a>
                                     </div>
                                 {% endif %}
 
-                                <h1 class="post-title">{{ title }}</h1>
+                                <h1 class="post-title">
+                                    <span id="article-title" class="ymaps-geolink"
+                                          style="cursor: auto !important; white-space: normal"
+                                          data-bounds="{{ bounds_of_place }}"
+                                          data-description="{{ title }}">{{ title }}<i class="fa fa-map-marker"
+                                                                                       onclick="$('#article-title').click();"></i>
+                                    </span>
+
+                                </h1>
 
                                 <!-- Copying coords -->
                                 <div class="post-map-params info-font">
@@ -78,7 +85,7 @@
 
                     {% if related_posts %}
 
-                        <div class="post-related arimolite-blog has-horizontal-line-on-top"><h3
+                        <div class="post-related arimolite-blog has-horizontal-line-on-top colorful-link"><h3
                                 class="see-also-heading">
                             Смотрите также</h3>
                             <div class="row">
@@ -114,5 +121,9 @@
             </div>
         </div>
     </div>
+
+    <script src="https://api-maps.yandex.ru/2.1/?load=Geolink&lang=ru_RU&apikey=d403fb88-0f79-421c-84be-8eb6eb188c65"
+            type="text/javascript"></script>
+
 
 {% endblock %}

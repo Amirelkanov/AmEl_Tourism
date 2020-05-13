@@ -179,12 +179,12 @@ footer {
 /* Changing link color */
 
 .colorful-link a {
-    color: #1a1d21 !important;
+    color: #1a1d21
 }
 
 .colorful-link a:hover,
 .blue-link a:hover {
-    color: orange !important;
+    color: orange;
     text-decoration: none;
     transition: all 0.3216s;
 }
@@ -348,11 +348,11 @@ footer {
 }
 
 .colorful-icon {
-    color: orange !important;
+    color: orange
 }
 
 .btn-copy-coords :hover {
-    color: #ffbe77 !important;
+    color: #ffbe77;
     transition: all 0.3216s;
 }
 
@@ -412,12 +412,12 @@ footer {
 .social-links .fab {
     font-size: 50px;
     margin-left: 0.2em;
-    color: #dbdbdb !important;
+    color: #dbdbdb;
     text-decoration: none !important;
 }
 
 .social-links .fab:hover {
-    color: #ffa300 !important;
+    color: #ffa300;
     transition: all 0.3216s;
 }
 
@@ -543,7 +543,7 @@ tr:hover .category-actions {
     border-radius: 50%;
     border: 1px solid #dfe1e5;
     background: white;
-    color: orange !important;
+    color: orange;
     transform-origin: 50% 50%;
     z-index: 500;
     padding: 10px;
@@ -605,8 +605,34 @@ tr .negative:hover {
     transition: 0.4s;
     opacity: 1;
 }
-html.is-animating .transition-fade{
+
+html.is-animating .transition-fade {
     opacity: 0;
 }
 
 /* ------------------------------ */
+
+
+.ymaps-geolink {
+    display: inline !important;
+    position: relative;
+    margin-left: 0 !important;
+    color: black !important;
+    line-height: 42px !important;
+    height: auto !important;
+}
+
+.ymaps-geolink::before, .ymaps-geolink::after {
+    display: none !important;
+}
+
+.post-title .fa-map-marker {
+    color: red;
+    cursor: pointer
+}
+
+.post-title .fa-map-marker:hover {
+    color: lightcoral;
+    transition: all 0.3216s;;
+}
+
