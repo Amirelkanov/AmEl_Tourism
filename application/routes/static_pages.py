@@ -49,7 +49,7 @@ def article(article_id):
 
     rendered_page = BeautifulSoup(render_template('article.html',
                                                   title=article_info.title, article_info=article_info,
-                                                  category_list=Category.query, apikey=YANDEX_API_KEY,
+                                                  category_list=Category.query, api_key=YANDEX_API_KEY,
                                                   bounds_of_place=lonlat_to_bounds(article_info.coords.split(', ')),
                                                   related_posts=related_posts), 'lxml')
 
