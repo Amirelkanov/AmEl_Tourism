@@ -20,7 +20,10 @@
                 {{ form.password(class="form-control", type="password") }}
             </p>
 
-            {{ form.remember_me() }} {{ form.remember_me.label }}
+            <p class="custom-control custom-checkbox">
+                {{ form.remember_me(class="custom-control-input") }}
+                {{ form.remember_me.label(class="custom-control-label") }}
+            </p>
 
             <p>{{ form.submit(type="submit", class="btn btn-primary btn-block") }}</p>
 
