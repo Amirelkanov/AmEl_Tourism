@@ -480,7 +480,7 @@ tr:hover .category-actions {
 }
 
 .delete-category-action {
-    margin: 1em;
+    margin: 1em 0 1em 1em;
 }
 
 /* */

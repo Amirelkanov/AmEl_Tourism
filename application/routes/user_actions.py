@@ -15,7 +15,7 @@ user_actions = Blueprint('_user_', __name__)
 @is_user_admin
 def users():
     return render_template('Admin/users.html', title='Список пользователей',
-                           list_of_users=User.query.all())
+                           list_of_users=User.query.order_by(User.id).all())
 
 
 # Setting user role (admin / not admin)

@@ -6,10 +6,9 @@ from random import shuffle
 from bs4 import BeautifulSoup
 from flask import Blueprint, render_template
 
+from ..data.articles import Article, Category
 from ..extensions.const import YANDEX_API_KEY
 from ..extensions.img_tags import img_tag, group_img_tag, img_group_tag, img_group_closing_tag
-from ..extensions.is_admin_decorator import is_user_admin
-from ..data.articles import Article, Category
 from ..extensions.lonlat_converting import lonlat_to_bounds
 from ..page_navigation.pagination import PageNavigation
 
@@ -96,11 +95,3 @@ def article(article_id):
 @main.route('/about')
 def about_us():
     return render_template('about_us.html', title='О нас')
-
-
-# Page showing categories
-@main.route('/categories')
-@is_user_admin
-def categories():
-    return render_template('Admin/categories.html', title='Категории',
-                           list_of_categories=Category.query.all())

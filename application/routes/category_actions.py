@@ -11,6 +11,14 @@ from ..forms.admin_forms import CategoryForm
 category_actions = Blueprint('category_actions', __name__)
 
 
+# Page showing categories
+@category_actions.route('/categories')
+@is_user_admin
+def categories():
+    return render_template('Admin/categories.html', title='Категории',
+                           list_of_categories=Category.query.order_by(Category.id).all())
+
+
 # Add category form
 @category_actions.route('/add_category', methods=['GET', 'POST'])
 @is_user_admin
