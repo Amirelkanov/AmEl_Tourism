@@ -480,33 +480,20 @@ tr:hover .category-actions {
 }
 
 .delete-category-action {
-    margin: 1em 0 1em 1em;
+    margin: 1em;
 }
 
 /* */
 
 
 @media all and (max-width: 770px) {
-    .category-table table {
-        width: 400px;
-    }
-
-    .users-table table {
+    .category-table table, .users-table table {
         display: block;
         overflow-x: scroll;
-        max-width: 500px;
     }
-}
 
-@media all and (max-width: 500px) {
-    .users-table table {
-        max-width: 300px;
-    }
-}
-
-@media all and (max-width: 400px) {
-    .category-table table {
-        width: 200px;
+    .category-table table, .users-table table {
+        max-width: 350px;
     }
 
     tr .category-actions {
@@ -515,6 +502,12 @@ tr:hover .category-actions {
 
     .delete-category-action {
         margin: 1em 0;
+    }
+}
+
+@media all and (max-width: 500px) {
+    .users-table table, .category-table table {
+        max-width: 250px;
     }
 }
 
