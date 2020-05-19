@@ -42,3 +42,8 @@ class Category(db.Model, SerializerMixin):
     name_of_category = db.Column(db.String, nullable=False)
 
     user = db.relation("Article")
+
+    category_columns_name = {
+        'id': 'ID',
+        'name_of_category': 'Название категории',
+    }

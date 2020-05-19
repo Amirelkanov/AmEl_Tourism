@@ -9,8 +9,7 @@
                         <div class="arimolite-blogs blog-grid colorful-link">
                             <div class="row">
                                 {% for item in places %}
-                                    {% set article_category =
-                            category_list.filter_by(id=item.article_category_id).first().name_of_category %}
+                                    {% set article_category = category_list.filter_by(id=item.article_category_id).first().name_of_category %}
                                     <article
                                             class="col-md-6 col-lg-6 post type-post status-publish format-standard has-post-thumbnail">
                                         <div class="post-inner">

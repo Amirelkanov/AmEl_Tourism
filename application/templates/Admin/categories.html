@@ -1,37 +1,53 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <div class="container category-table text-center">
+    <div class="container table-block text-center">
+
         <h2>Список категорий</h2>
-        <table>
 
-            <tbody class="blue-link">
+        <div class="table-responsive">
+            <table>
 
-            <tr>
-                <th>ID</th>
-                <th>Название категории</th>
-                <th><a href="/add_category" title="Добавить категорию" style="padding-bottom: 1px"><i
-                        class="fa fa-plus-circle"></i></a></th>
-            </tr>
+                <tbody class="blue-link">
 
-            {% for i in list_of_categories %}
                 <tr>
-                    <td>{{ i.id }}</td>
-                    <td>{{ i.name_of_category }}</td>
-                    <td class="category-actions">
-                        <a href="/edit_category/{{ i.id }}"><i class="fa fa-pen"></i></a>
-                        <a href="/delete_category/{{ i.id }}" class="delete-category-action"><i class="fa fa-trash"></i></a>
-                    </td>
+                    {% for i, j in columns_name.items() %}
+                        <th onclick="window.location.href='/categories/sort_by/{{ i }}/is_reversed={{ is_reversed[1] }}'">
+                            {{ j }}
+                            {% if j == columns_name[sort_by_element] %}
+                                {% if is_reversed[0] %} <i class="fas fa-caret-up"></i>
+                                {% else %} <i class="fas fa-caret-down"></i>
+                                {% endif %}
+                            {% endif %}
+                        </th>
+                    {% endfor %}
+
+                    <th style="cursor: auto">
+                        <a href="/add_category" title="Добавить категорию" style="padding-bottom: 1px"><i
+                                class="fa fa-plus-circle"></i></a>
+                    </th>
                 </tr>
-            {% endfor %}
 
-            </tbody>
+                {% for i in list_of_categories %}
+                    <tr>
+                        <td>{{ i.id }}</td>
+                        <td>{{ i.name_of_category }}</td>
+                        <td class="category-actions">
+                            <a href="/edit_category/{{ i.id }}"><i class="fa fa-pen"></i></a>
+                            <a href="/delete_category/{{ i.id }}" class="delete-category-action"><i
+                                    class="fa fa-trash"></i></a>
+                        </td>
+                    </tr>
+                {% endfor %}
 
-        </table>
+                </tbody>
 
-        <div class="actions colorful-link">
-            <a href="/add_category" title="Добавить категорию" class="topbutton text-center category-action">
-                <i class="fa fa-plus-circle"></i></a>
+            </table>
+
+            <div class="actions colorful-link">
+                <a href="/add_category" title="Добавить категорию" class="topbutton text-center category-action">
+                    <i class="fa fa-plus-circle"></i></a>
+            </div>
         </div>
 
     </div>

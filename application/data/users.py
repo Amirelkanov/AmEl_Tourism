@@ -26,6 +26,14 @@ class User(db.Model, UserMixin, SerializerMixin):
     registration_date = db.Column(db.DateTime,
                                   default=datetime.datetime.now)
 
+    user_columns_name = {
+        'id': 'ID',
+        'name': 'Имя пользователя',
+        'email': 'Электронная почта',
+        'registration_date': 'Дата регистрации',
+        'is_admin': 'Админ'
+    }
+
     def set_password(self, password):
         self.hashed_password = generate_password_hash(password)
 

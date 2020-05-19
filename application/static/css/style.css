@@ -1,10 +1,5 @@
 /* ------- Header ------- */
 
-.dropdown-item:hover {
-    background-color: ghostwhite;
-    transition: all 0.3216s;
-}
-
 .navbar-dark .navbar-nav .nav-link:hover {
     transition: all 0.3216s;
 }
@@ -113,14 +108,8 @@ h2 {
 
 footer {
     background-color: #1a1d21;
-    color: #ffffff;
+    color: #fff;
     padding: 20px;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
 }
 
 .content {
@@ -439,28 +428,35 @@ footer {
 }
 
 
-/* -------------- Categories table -------------- */
+/* -------------- Table -------------- */
 
-.category-table, .users-table {
+.table-block {
     padding: 5rem;
 }
 
-.category-table table, .users-table table {
+table {
     margin: auto;
     width: 700px;
 }
 
-
-.category-table th, .users-table th {
+th {
     font-weight: normal;
+    white-space: nowrap;
     border-bottom: 2px solid #6678b1;
     border-right: 30px solid #fff;
     border-left: 30px solid #fff;
     color: #039;
-    padding: 8px 2px;
+    padding: 10px 8px;
+    cursor: pointer;
 }
 
-.category-table td, .users-table td {
+th:hover {
+    color: #7d8fb4;
+    border-bottom-color: #7d8fb4;
+    transition: all 0.3216s;
+}
+
+td {
     border-right: 30px solid #fff;
     border-left: 30px solid #fff;
     color: #669;
@@ -482,35 +478,6 @@ tr:hover .category-actions {
 .delete-category-action {
     margin: 1em 0 1em 1em;
 }
-
-/* */
-
-
-@media all and (max-width: 770px) {
-    .category-table table, .users-table table {
-        display: block;
-        overflow-x: scroll;
-    }
-
-    .category-table table, .users-table table {
-        max-width: 350px;
-    }
-
-    tr .category-actions {
-        opacity: 1;
-    }
-
-    .delete-category-action {
-        margin: 1em 0;
-    }
-}
-
-@media all and (max-width: 500px) {
-    .users-table table, .category-table table {
-        max-width: 250px;
-    }
-}
-
 
 /* ---------------------------------------------- */
 

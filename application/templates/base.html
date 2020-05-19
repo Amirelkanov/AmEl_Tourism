@@ -40,8 +40,8 @@
 <body>
 
 <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-1">
-        <div class="container">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top pt-1 pb-1 z-index-30">
+        <div class="container px-0">
             <a class="navbar-brand logo-font" href="/" title="AmEl Tourism">
                 <img src="https://svgshare.com/i/L1B.svg" alt="AmEl Tourism Logo" width="56"
                      class="d-inline-block align-middle mr-2 my-2 my-lg-0"/>
@@ -56,8 +56,9 @@
                 <ul class="navbar-nav mr-auto">
 
                     <li class="nav-item">
-                        <a class="nav-link" href="/index">Главная <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="/index">Главная</a>
                     </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="/about">О нас</a>
                     </li>
@@ -75,6 +76,7 @@
                                href="https://www.facebook.com" target="_blank">
                                 Мы в Facebook
                             </a>
+                            <div class="dropdown-divider"></div>
                             <a class="dropdown-item"
                                href="https://vk.com/amel_tourism_bot" target="_blank">
                                 VK бот
@@ -87,45 +89,85 @@
 
                     </li>
 
-                    {% if current_user.is_authenticated and current_user.is_admin %}
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" title="Функции админа"
-                               id="admin-menu" data-toggle="dropdown"
-                               aria-haspopup="true" aria-expanded="false">
-                                Админ
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="admin-menu">
-                                <a class="dropdown-item" href="/add_article">
-                                    Добавить статью
-                                </a>
-                                <a class="dropdown-item" href="/add_category">
-                                    Добавить категорию
-                                </a>
-                                <a class="dropdown-item" href="/categories">
-                                    Список категорий
-                                </a>
-                                <a class="dropdown-item" href="/users">
-                                    Список пользователей
-                                </a>
-                            </div>
-                        </li>
-                    {% endif %}
 
                 </ul>
 
-                {% if current_user.is_authenticated %}
-                    <a class="btn btn-outline-light my-2 my-lg-0"
-                       href="/logout" title="Ваш логин">
-                        {{ current_user.name }}
-                    </a>
-                {% else %}
-                    <a class="btn btn-outline-light my-2 my-lg-0"
-                       href="/login">
-                        Войти
-                    </a>
-                {% endif %}
+                <ul class="navbar-nav ml-auto">
+                    {% if current_user.is_authenticated %}
+                        <li class="dropdown d-md-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAccount" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-user mr-2"></i>{{ current_user.name }}</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownAccount">
+                                <a class="dropdown-item" href="/account">Учетная запись</a>
 
+                                <div class="dropdown-divider"></div>
+
+                                {% if current_user.is_authenticated and current_user.is_admin %}
+                                    <a class="dropdown-item" href="/add_article">
+                                        Добавить статью
+                                    </a>
+                                    <a class="dropdown-item" href="/add_category">
+                                        Добавить категорию
+                                    </a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="/categories">
+                                        Список категорий
+                                    </a>
+                                    <a class="dropdown-item" href="/users">
+                                        Список пользователей
+                                    </a>
+                                {% endif %}
+
+                                <div class="dropdown-divider"></div>
+
+                                <a class="dropdown-item" href="/logout">Выйти</a>
+                            </div>
+                        </li>
+
+                        <li class="dropdown d-none d-md-block">
+                            <a class="btn btn-outline-light dropdown-toggle" href="/account" id="navbarDropdownAccount"
+                               role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-user mr-2"></i><span>{{ current_user.name }}</span></a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownAccount">
+                                <a class="dropdown-item" href="account">Учетная запись</a>
+
+                                <div class="dropdown-divider"></div>
+
+                                {% if current_user.is_authenticated and current_user.is_admin %}
+                                    <a class="dropdown-item" href="/add_article">
+                                        Добавить статью
+                                    </a>
+                                    <a class="dropdown-item" href="/add_category">
+                                        Добавить категорию
+                                    </a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="/categories">
+                                        Список категорий
+                                    </a>
+                                    <a class="dropdown-item" href="/users">
+                                        Список пользователей
+                                    </a>
+                                {% endif %}
+
+                                <div class="dropdown-divider"></div>
+
+                                <a class="dropdown-item" href="/logout">Выйти</a>
+                            </div>
+                        </li>
+
+                    {% else %}
+                        <li class="nav-item d-none d-md-block">
+                            <a class="btn btn-outline-light" role="button" href="/login">
+                                <i class="fas fa-user mr-2"></i><span class="ml-0">Войти</span></a>
+                        </li>
+                        <li class="nav-item d-md-none">
+                            <a class="nav-link" href="/login">
+                                <i class="fas fa-user mr-2"></i><span class="ml-0">Войти</span></a></li>
+                    {% endif %}
+                </ul>
             </div>
+
         </div>
     </nav>
 
@@ -133,10 +175,11 @@
 
 <div class="wrapper">
 
-    <div id="swup" class="content transition-fade">
+    <div class="content">
         {% block content %}
         {% endblock %}
     </div>
+
     <footer>
         <!-- Social link icons -->
 

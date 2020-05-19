@@ -1,55 +1,63 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <div class="container users-table text-center">
+    <div class="container table-block text-center">
+
         <h2>Список пользователей</h2>
-        <table>
 
-            <tbody class="blue-link">
+        <div class="table-responsive">
+            <table>
 
-            <tr>
-                <th>ID</th>
-                <th>Имя пользователя</th>
-                <th>Электронная почта</th>
-                <th>Дата регистрации</th>
-                <th>Админ</th>
-            </tr>
+                <tbody>
 
-            {% for i in list_of_users %}
                 <tr>
-
-                    <td>{{ i.id }}</td>
-                    <td>{{ i.name }}<br>
-                        {% if i.id == current_user.id %}
-                            <span style="color: lightgrey">(Вы)</span>
-                        {% endif %}
-                    </td>
-                    <td>{{ i.email }}</td>
-                    <td>{{ i.registration_date }}</td>
-
-                    {% if i.is_admin %}
-
-                        <td {% if i.id != current_user.id %} class="admin-setting positive"
-                                                             onclick="window.location.href='/admin_setting/remove/{{ i.id }}'" {% else %}
-                                                             class="current-user-positive" {% endif %}>Да
-                        </td>
-
-                    {% else %}
-
-                        <td {% if i.id != current_user.id %} class="admin-setting negative"
-                                                             onclick="window.location.href='/admin_setting/add/{{ i.id }}'" {% else %}
-                                                             class="current-user-negative" {% endif %}>Нет
-                        </td>
-
-                    {% endif %}
-
+                    {% for i, j in columns_name.items() %}
+                        <th onclick="window.location.href='/users/sort_by/{{ i }}/is_reversed={{ is_reversed[1] }}'">
+                            {{ j }}
+                            {% if j == columns_name[sort_by_element] %}
+                                {% if is_reversed[0] %} <i class="fas fa-caret-up"></i>
+                                {% else %} <i class="fas fa-caret-down"></i>
+                                {% endif %}
+                            {% endif %}
+                        </th>
+                    {% endfor %}
                 </tr>
-            {% endfor %}
 
-            </tbody>
+                {% for i in list_of_users %}
 
-        </table>
+                    <tr>
+                        <td>{{ i.id }}</td>
+                        <td>{{ i.name }}<br>
+                            {% if i.id == current_user.id %}
+                                <span style="color: lightgrey">(Вы)</span>
+                            {% endif %}
+                        </td>
+                        <td>{{ i.email }}</td>
+                        <td>{{ i.registration_date }}</td>
 
+                        {% if i.is_admin %}
+
+                            <td {% if i.id != current_user.id %} class="admin-setting positive"
+                                                                 onclick="window.location.href='/admin_setting/remove/{{ i.id }}'" {% else %}
+                                                                 class="current-user-positive" {% endif %}>Да
+                            </td>
+
+                        {% else %}
+
+                            <td {% if i.id != current_user.id %} class="admin-setting negative"
+                                                                 onclick="window.location.href='/admin_setting/add/{{ i.id }}'" {% else %}
+                                                                 class="current-user-negative" {% endif %}>Нет
+                            </td>
+
+                        {% endif %}
+                    </tr>
+
+                {% endfor %}
+
+                </tbody>
+
+            </table>
+        </div>
     </div>
 
 {% endblock %}
