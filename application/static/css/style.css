@@ -597,5 +597,5 @@ html.is-animating .transition-fade {
 }
 
 .wcomments_form .wcomments_post_field {
-    border-radius: 5px;
+    border-radius: 5px !important;
 }
