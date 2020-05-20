@@ -115,18 +115,42 @@
                     {% endif %}
 
                     <div id="comments" class="comments-area">
-                        <div id="vk_comments"></div>
-                        <script type="text/javascript">
-                            VK.Widgets.Comments("vk_comments", {limit: 5, attach: "*"});
-                        </script>
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="tab" href="#vk-comments">Вконтакте</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#fb-comments">Facebook</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane fade show active" id="vk-comments">
+                                <div id="vk_comments"></div>
+                                <script type="text/javascript">
+                                    VK.Widgets.Comments("vk_comments", {limit: 5, attach: "*"});
+                                </script>
+                            </div>
+                            <div class="tab-pane fade" id="fb-comments">
+                                <div class="fb-comments"
+                                     data-href="https://amel-tourism.herokuapp.com{{ request.path }}"
+                                     data-numposts="5" data-width="100%"></div>
+                            </div>
+                        </div>
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
 
+    <script type="text/javascript" src="https://vk.com/js/api/openapi.js?168"></script>
+
+
     <script src="https://api-maps.yandex.ru/2.1/?load=Geolink&lang=ru_RU&apikey={{ api_key }}"
             type="text/javascript"></script>
+    <div id="fb-root"></div>
+    <script type="text/javascript" src="https://vk.com/js/api/openapi.js?168"></script>
+
+    <script async defer crossorigin="anonymous"
+            src="https://connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v7.0"></script>
 
 {% endblock %}
