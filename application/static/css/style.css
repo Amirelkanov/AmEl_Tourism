@@ -595,7 +595,3 @@ html.is-animating .transition-fade {
     color: lightcoral;
     transition: all 0.3216s;;
 }
-
-.wcomments_form .wcomments_post_field {
-    border-radius: 5px !important;
-}
