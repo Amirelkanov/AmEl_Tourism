@@ -114,6 +114,13 @@
 
                     {% endif %}
 
+                    <div id="comments" class="comments-area">
+                        <div id="vk_comments"></div>
+                        <script type="text/javascript">
+                            VK.Widgets.Comments("vk_comments", {limit: 5, attach: "*"});
+                        </script>
+                    </div>
+
                 </div>
             </div>
         </div>
