@@ -121,16 +121,17 @@ footer {
 
 /* Image scaling */
 
-.post-image, .post-header, .pinit, .about-us-title-image {
+.post-image, .post-header, .about-us-title-image {
     overflow: hidden;
     border-radius: 10px;
     object-fit: cover;
 }
 
-@media screen and (max-width: 500px) {
-    .pinit {
-        width: 300px;
-    }
+.pinit {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    border-radius: 10px;
 }
 
 .post-image, .about-us-title-image img {
