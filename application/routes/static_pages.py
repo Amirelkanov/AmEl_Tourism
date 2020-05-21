@@ -86,3 +86,8 @@ def article(article_id):
 @main.route('/about')
 def about_us():
     return render_template('about_us.html', title='О нас')
+
+
+@main.route('/account')
+def account():
+    return render_template('account.html', title='Аккаунт')
