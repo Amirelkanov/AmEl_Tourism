@@ -5,13 +5,13 @@ from flask import Blueprint, render_template, redirect, request, abort
 from flask_login import current_user
 from werkzeug.utils import secure_filename
 
-from ..data.articles import Category, Article
-from ..extensions.const import min_length_of_text
-from ..extensions.img_tags import img_tag, group_img_tag
-from ..extensions.init_models import db
-from ..extensions.is_admin_decorator import is_user_admin
-from ..extensions.load_images import load_images
-from ..forms.admin_forms import ArticleForm
+from ...data.articles import Category, Article
+from ...extensions.const import min_length_of_text
+from ...extensions.img_tags import img_tag, group_img_tag
+from ...extensions.init_models import db
+from ...extensions.is_admin_decorator import is_user_admin
+from ...extensions.load_images import load_images
+from ...forms.admin_forms import ArticleForm
 
 article_actions = Blueprint('article_actions', __name__)
 
@@ -26,10 +26,11 @@ def add_article():
     form.category.choices = [(i.id, i.name_of_category) for i in Category.query.all()]
 
     if request.method == 'POST':
+        is_alert_hidden = False
         article_text = form.text.data.replace('\r\r', '<br>')
         if len(article_text.split()) < min_length_of_text:
             return render_template("Forms/article_form.html", title='Добавление статьи',
-                                   form=form, alert="alert alert-danger",
+                                   form=form, alert_class='alert-danger', is_alert_hidden=is_alert_hidden,
                                    message="Текст статьи слишком маленький", title_image_name=title_image_name,
                                    article_images=article_images, min_length_of_text=min_length_of_text,
                                    submit_button_text='Опубликовать')
@@ -65,7 +66,7 @@ def add_article():
 
         else:
             return render_template("Forms/article_form.html", title='Добавление статьи',
-                                   form=form, alert="alert alert-danger",
+                                   form=form, alert_class='alert-danger', is_alert_hidden=is_alert_hidden,
                                    message="Кол-во указанных изображений не соответствует загруженным",
                                    title_image_name='Титульное изображение',
                                    article_images='Загрузить изображения', min_length_of_text=min_length_of_text,
@@ -76,7 +77,7 @@ def add_article():
         return redirect('/')
 
     return render_template('Forms/article_form.html', title='Добавление статьи', form=form,
-                           title_image_name=title_image_name,
+                           title_image_name=title_image_name, alert_class='alert-danger', is_alert_hidden=True,
                            article_images=article_images, min_length_of_text=min_length_of_text,
                            submit_button_text='Опубликовать')
 
@@ -115,9 +116,10 @@ def edit_article(article_id):
 
     if request.method == 'POST':
         article_text = form.text.data.replace('\r', '<br>')
+        is_alert_hidden = False
         if len(article_text.split()) < min_length_of_text:
             return render_template('Forms/article_form.html', title='Редактирование статьи',
-                                   form=form, alert="alert alert-danger",
+                                   form=form, alert_class='alert-danger', is_alert_hidden=is_alert_hidden,
                                    message="Текст статьи слишком маленький", title_image_name=title_image_name,
                                    article_images=article_images, submit_button_text='Сохранить')
 
@@ -159,7 +161,7 @@ def edit_article(article_id):
 
             else:
                 return render_template("Forms/article_form.html", title='Редактирование статьи',
-                                       form=form, alert="alert alert-danger",
+                                       form=form, alert_class='alert-danger', is_alert_hidden=is_alert_hidden,
                                        message="Кол-во указанных изображений не соответствует загруженным",
                                        title_image_name='Титульное изображение',
                                        article_images='Загрузить изображения', submit_button_text='Сохранить')
@@ -171,7 +173,7 @@ def edit_article(article_id):
             abort(404)
 
     return render_template('Forms/article_form.html', title='Редактирование статьи', form=form,
-                           title_image_name=title_image_name,
+                           title_image_name=title_image_name, alert_class='alert-danger', is_alert_hidden=True,
                            article_images=article_images, submit_button_text='Сохранить')
 
 

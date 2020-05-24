@@ -3,10 +3,10 @@
 
 from flask import Blueprint, render_template, redirect, request, abort
 
-from ..data.articles import Category
-from ..extensions.init_models import db
-from ..extensions.is_admin_decorator import is_user_admin
-from ..forms.admin_forms import CategoryForm
+from ...data.articles import Category
+from ...extensions.init_models import db
+from ...extensions.is_admin_decorator import is_user_admin
+from ...forms.admin_forms import CategoryForm
 
 category_actions = Blueprint('category_actions', __name__)
 
@@ -30,7 +30,8 @@ def categories(sort_by_element='id', is_reversed=0):
 def add_category():
     form = CategoryForm()
     if form.validate_on_submit():
-        category = Category(name_of_category=form.name_of_category.data)
+        category = Category()
+        category.name_of_category = form.name_of_category.data
         db.session.add(category)
         db.session.commit()
         return redirect('/categories')

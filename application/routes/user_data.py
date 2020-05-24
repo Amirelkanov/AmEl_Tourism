@@ -18,27 +18,29 @@ def reqister():
     form = RegisterForm()
 
     if form.validate_on_submit():
+        is_alert_hidden = False
         if form.password.data != form.password_again.data:
             return render_template('Forms/register_form.html', title='Регистрация',
                                    form=form,
-                                   alert="alert alert-danger",
+                                   alert_class='alert-danger', is_alert_hidden=is_alert_hidden,
                                    message="Пароли не совпадают")
 
-        if User.query.filter(User.email == form.login_or_email.data).first():
+        if User.query.filter(User.email == form.email.data).first():
             return render_template('Forms/register_form.html', title='Регистрация',
-                                   alert="alert alert-danger",
+                                   alert_class='alert-warning', is_alert_hidden=is_alert_hidden,
                                    form=form,
                                    message="Такой пользователь уже есть")
 
-        user = User()
-        user.name = form.name.data
-        user.email = form.login_or_email.data
-        user.set_password(form.password.data)
-        db.session.add(user)
+        new_user = User()
+        new_user.name = form.name.data
+        new_user.email = form.email.data
+        new_user.set_password(form.password.data)
+        db.session.add(new_user)
         db.session.commit()
         return redirect("/login")
 
-    return render_template('Forms/register_form.html', title='Регистрация', form=form)
+    return render_template('Forms/register_form.html', title='Регистрация', form=form,
+                           alert_class='alert-danger', is_alert_hidden=True)
 
 
 # Login form
@@ -47,16 +49,17 @@ def login():
     form = LoginForm()
     if form.validate_on_submit():
 
-        user = User.query.filter(User.email == form.email.data).first()
+        user_by_email = User.query.filter(User.email == form.email.data).first()
 
-        if user and user.check_password(form.password.data):
-            login_user(user, remember=form.remember_me.data)
+        if user_by_email and user_by_email.check_password(form.password.data):
+            login_user(user_by_email, remember=form.remember_me.data)
             return redirect("/")
         return render_template('Forms/login_form.html',
-                               alert="alert alert-danger",
+                               alert_class='alert-danger', is_alert_hidden=False,
                                form=form,
                                message="Неправильный логин или пароль")
-    return render_template('Forms/login_form.html', title='Авторизация', form=form)
+    return render_template('Forms/login_form.html', title='Авторизация', form=form,
+                           alert_class='alert-danger', is_alert_hidden=True)
 
 
 # Load user function

@@ -5,9 +5,11 @@ from random import shuffle
 
 from bs4 import BeautifulSoup
 from flask import Blueprint, render_template
+from flask_login import current_user
 
 from ..data.articles import Article, Category
 from ..extensions.const import YANDEX_API_KEY
+from ..extensions.formatted_datetime import get_formatted_datetime
 from ..extensions.img_tags import img_tag, group_img_tag, img_group_tag, img_group_closing_tag
 from ..extensions.lonlat_converting import lonlat_to_bounds
 from ..page_navigation.pagination import PageNavigation
@@ -90,4 +92,5 @@ def about_us():
 
 @main.route('/account')
 def account():
-    return render_template('account.html', title='Аккаунт')
+    return render_template('account.html', title='Аккаунт',
+                           user_registration_date=get_formatted_datetime(current_user.registration_date))

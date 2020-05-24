@@ -8,9 +8,14 @@
             {{ form.hidden_tag() }}
             {{ form.csrf_token }}
 
-            <div class="{{ alert }}" role="alert">
-                {{ message }}
-            </div>
+            {% if not is_alert_hidden %}
+                <div class="alert {{ alert_class }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            {% endif %}
 
             <p>
                 {{ form.email.label }}<br>

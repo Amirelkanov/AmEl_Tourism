@@ -7,7 +7,8 @@ from flask import Flask
 
 from commands import create_tables
 from .extensions.init_models import db, login_manager
-from .routes import errors_handler, article_actions, user_data, category_actions, static_pages, user_actions
+from .routes import errors_handler, user_data, static_pages
+from .routes.actions import account_actions, article_actions, category_actions, user_actions
 
 
 def create_app():
@@ -36,6 +37,7 @@ def create_app():
     app.register_blueprint(article_actions.article_actions)
     app.register_blueprint(user_actions.user_actions)
     app.register_blueprint(category_actions.category_actions)
+    app.register_blueprint(account_actions.account_actions)
 
     app.register_blueprint(errors_handler.errors)
 

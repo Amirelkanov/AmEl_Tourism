@@ -1,0 +1,212 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="container">
+        <section class="acc-info">
+            <div class="info-card">
+                <article class="profile-info">
+                    <div class="rounded-card">
+                        <div class="card-geometry">
+
+                            <div class="card-height">
+                                <div class="header-align header-indent">
+                                    <header>
+                                        <h2 class="info-card-header">Профиль</h2>
+                                    </header>
+                                </div>
+                            </div>
+
+                            <div class="card-height has-hover vertically-centered">
+                                <div class="has-href">
+                                    <a href="/account/name" class="d-block outline-align header-align header-indent">
+                                        <div class="d-flex align-items-center">
+                                            <div class="description-block">
+                                                <div>
+
+                                                    <div class="desc-block-header">
+                                                        <h3>Имя</h3>
+                                                    </div>
+
+                                                    <div style="-webkit-flex-basis:328px; -ms-flex-preferred-size:328px;
+                                                                flex-basis:328px;">
+                                                        <div class="desc-block-header">
+                                                            <div class="desc-block-info">{{ current_user.name }}</div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                            <div class="angle">
+                                                <figure class="angle-align" aria-hidden="true">
+                                                    <span aria-hidden="true">&rsaquo;</span>
+                                                </figure>
+                                            </div>
+
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="card-height has-hover vertically-centered">
+
+                                <div class="border-align" role="presentation">
+                                    <div class="top-border"></div>
+                                </div>
+
+                                <div class="has-href">
+                                    <a href="/account/email" class=" d-block outline-align header-align header-indent">
+                                        <div class="d-flex align-items-center">
+                                            <div class="description-block">
+                                                <div>
+
+                                                    <div class="desc-block-header"><h3>Электронная почта</h3>
+                                                    </div>
+
+                                                    <div style="-webkit-flex-basis:328px; -ms-flex-preferred-size:328px;
+                                                                flex-basis:328px;">
+                                                        <div class="desc-block-header">
+                                                            <div class="desc-block-info">{{ current_user.email }}</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="angle">
+                                                <figure class="angle-align" aria-hidden="true">
+                                                    <span aria-hidden="true">&rsaquo;</span>
+                                                </figure>
+                                            </div>
+
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="card-height has-hover vertically-centered">
+
+                                <div class="border-align" role="presentation">
+                                    <div class="top-border"></div>
+                                </div>
+
+                                <div class="has-href">
+                                    <a href="/account/password"
+                                       class="d-block outline-align header-align header-indent">
+                                        <div class="d-flex align-items-center">
+                                            <div class="description-block">
+                                                <div>
+
+                                                    <div class="desc-block-header">
+                                                        <h3>Пароль</h3>
+                                                    </div>
+
+                                                    <div style="-webkit-flex-basis:328px; -ms-flex-preferred-size:328px;
+                                                                flex-basis:328px;">
+                                                        <div class="desc-block-header">
+                                                            <div class="desc-block-info">Изменить пароль</div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="angle">
+                                                <figure class="angle-align" aria-hidden="true">
+                                                    <span aria-hidden="true">&rsaquo;</span>
+                                                </figure>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="info-card">
+                <article class="additional-profile-info">
+                    <div class="rounded-card">
+                        <div class="card-geometry">
+
+                            <div class="card-height vertically-centered">
+                                <div>
+                                    <div class="header-align header-indent">
+                                        <header class="mSUZQd">
+                                            <div class="jbRlDc">
+                                                <h2 class="info-card-header">Дополнительная информация</h2>
+                                            </div>
+                                        </header>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-height vertically-centered">
+                                <div>
+                                    <div class="d-block outline-align header-align header-indent">
+                                        <div class="d-flex align-items-center">
+                                            <div class="description-block">
+                                                <div>
+
+                                                    <div class="desc-block-header">
+                                                        <h3>Дата регистрации</h3>
+                                                    </div>
+
+                                                    <div style="-webkit-flex-basis:328px; -ms-flex-preferred-size:328px;
+                                                                flex-basis:328px;">
+                                                        <div class="desc-block-header">
+                                                            <div class="desc-block-info">{{ user_registration_date }}</div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-height vertically-centered">
+
+                                <div class="border-align" role="presentation">
+                                    <div class="top-border"></div>
+                                </div>
+
+                                <div>
+                                    <div class=" d-block outline-align header-align header-indent">
+                                        <div class="d-flex align-items-center">
+                                            <div class="description-block">
+                                                <div>
+
+                                                    <div class="desc-block-header">
+                                                        <h3>Роль</h3>
+                                                    </div>
+
+                                                    <div style="-webkit-flex-basis:328px; -ms-flex-preferred-size:328px;
+                                                                flex-basis:328px;">
+                                                        <div class="desc-block-header">
+                                                            <div class="desc-block-info">
+                                                                {% if current_user.is_admin %}
+                                                                    Админ
+                                                                {% else %}
+                                                                    Пользователь
+                                                                {% endif %}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+        </section>
+    </div>
+{% endblock %}

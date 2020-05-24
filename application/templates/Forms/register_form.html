@@ -5,9 +5,14 @@
         <form class="main-form register-form blue-link" action="" method="post">
             <h2 class="text-center">Регистрация</h2>
 
-            <div class="{{ alert }}" role="alert">
-                {{ message }}
-            </div>
+            {% if not is_alert_hidden %}
+                <div class="alert {{ alert_class }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            {% endif %}
 
             {{ form.hidden_tag() }}
             {{ form.csrf_token }}
@@ -18,8 +23,8 @@
                 {{ form.name(class="form-control") }}<br>
 
 
-                {{ form.login_or_email.label }}<br>
-                {{ form.login_or_email(class="form-control", type="email") }}<br>
+                {{ form.email.label }}<br>
+                {{ form.email(class="form-control", type="email") }}<br>
 
 
                 {{ form.password.label }}<br>

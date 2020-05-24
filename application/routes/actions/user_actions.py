@@ -3,11 +3,11 @@
 
 from flask import Blueprint, render_template, redirect, abort
 
-from ..data.users import User
-from ..extensions.init_models import db
-from ..extensions.is_admin_decorator import is_user_admin
+from ...data.users import User
+from ...extensions.init_models import db
+from ...extensions.is_admin_decorator import is_user_admin
 
-user_actions = Blueprint('_user_', __name__)
+user_actions = Blueprint('user_actions', __name__)
 
 
 # Users table
