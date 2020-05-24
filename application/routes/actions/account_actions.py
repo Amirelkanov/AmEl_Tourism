@@ -5,10 +5,18 @@ from flask import Blueprint, render_template, request
 from flask_login import current_user
 
 from ...data.users import User
+from ...extensions.formatted_datetime import get_formatted_datetime
 from ...extensions.init_models import db
 from ...forms.account_forms import NameForm, EmailForm, PasswordForm
 
 account_actions = Blueprint('account_actions', __name__)
+
+
+# Page showing account info
+@account_actions.route('/account')
+def account():
+    return render_template('account.html', title='Аккаунт',
+                           user_registration_date=get_formatted_datetime(current_user.registration_date))
 
 
 # Edit name form
