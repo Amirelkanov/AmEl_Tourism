@@ -3,7 +3,7 @@
 
     <div class="container">
         <form class="main-form login-form blue-link" action="" method="post">
-            <h2 class="text-center">Авторизация</h2>
+            <h2 class="text-center">{{ title }}</h2>
 
             {{ form.hidden_tag() }}
             {{ form.csrf_token }}

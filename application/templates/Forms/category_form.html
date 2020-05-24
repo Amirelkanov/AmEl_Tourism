@@ -3,7 +3,7 @@
 {% block content %}
     <div class="container">
         <form class="main-form category-form" action="" method="post">
-            <h2 class="text-center">Добавление категории</h2>
+            <h2 class="text-center">{{ title }}</h2>
 
             {{ form.hidden_tag() }}
             {{ form.csrf_token }}
