@@ -89,7 +89,6 @@ def edit_password():
                                    alert_class='alert-danger')
 
         if user:
-            print(form.new_password.data, form.new_password_again.data)
             if form.new_password.data != form.new_password_again.data:
                 return render_template('Forms/password_form.html', title='Изменение пароля',
                                        is_alert_hidden=is_alert_hidden, form=form,

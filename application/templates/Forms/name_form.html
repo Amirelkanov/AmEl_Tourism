@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div class="container">
+        <form class="main-form category-form" action="" method="post">
+            <h2 class="text-center">Изменение имени</h2>
+
+            {% if not is_alert_hidden %}
+                <div class="alert {{ alert_class }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            {% endif %}
+
+            {{ form.hidden_tag() }}
+            {{ form.csrf_token }}
+
+            <p>
+                {{ form.name.label }}<br>
+                {{ form.name(class="form-control") }}
+            </p>
+
+            <p>
+                {{ form.password.label }}<br>
+                {{ form.password(class="form-control") }}
+            </p>
+
+            <p class="text-right" style="white-space: nowrap">
+                <a href="/account" class="btn btn-danger">Отменить</a>
+                {{ form.submit(type="submit", class="btn btn-primary") }}
+            </p>
+        </form>
+    </div>
+{% endblock %}
