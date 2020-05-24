@@ -6,6 +6,7 @@
 from flask import Flask
 
 from commands import create_tables
+from .extensions.const import DATABASE_URL, FLASK_SECRET_KEY, RECAPTCHA_PUBLIC_KEY, RECAPTCHA_PRIVATE_KEY
 from .extensions.init_models import db, login_manager
 from .routes import errors_handler, user_data, static_pages
 from .routes.actions import account_actions, article_actions, category_actions, user_actions
@@ -15,16 +16,14 @@ def create_app():
     app = Flask(__name__, instance_relative_config=True)
 
     # Init secret key
-    app.config['SECRET_KEY'] = 'AmEl-Tourism-key'
+    app.config['SECRET_KEY'] = FLASK_SECRET_KEY
 
     # Init recaptcha
-    app.config["RECAPTCHA_PUBLIC_KEY"] = "6Leg2OkUAAAAANYckFuHF37iwk-qv2X0QTLK2ANu"
-    app.config["RECAPTCHA_PRIVATE_KEY"] = "6Leg2OkUAAAAAJkKR0CIhMxxIS5eu65_dZYZW4oF"
+    app.config["RECAPTCHA_PUBLIC_KEY"] = RECAPTCHA_PUBLIC_KEY
+    app.config["RECAPTCHA_PRIVATE_KEY"] = RECAPTCHA_PRIVATE_KEY
 
     # Init database
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://wgfebwadpolfvi:61a91a8bd3230cc9ab9a020ba3517faeb998eedbe87723' \
-                                            '7c112d29114ff8736f@ec2-52-71-55-81.compute-1.amazonaws.com:5432' \
-                                            '/d2j2hkmdp0uifl'
+    app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL
 
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 

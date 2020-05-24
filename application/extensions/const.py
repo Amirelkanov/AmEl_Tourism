@@ -3,6 +3,14 @@
 
 """ Constants """
 
+FLASK_SECRET_KEY = 'AmEl-Tourism-key'
+DATABASE_URL = 'postgres://wgfebwadpolfvi:61a91a8bd3230cc9ab9a020ba3517faeb998eedbe87723' \
+                                            '7c112d29114ff8736f@ec2-52-71-55-81.compute-1.amazonaws.com:5432' \
+                                            '/d2j2hkmdp0uifl'
+
+RECAPTCHA_PUBLIC_KEY = "6Leg2OkUAAAAANYckFuHF37iwk-qv2X0QTLK2ANu"
+RECAPTCHA_PRIVATE_KEY = "6Leg2OkUAAAAAJkKR0CIhMxxIS5eu65_dZYZW4oF"
+
 min_length_of_text = 40
 max_num_of_articles_per_page = 8
 
