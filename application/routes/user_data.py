@@ -56,7 +56,7 @@ def login():
             return redirect("/")
         return render_template('Forms/login_form.html',
                                alert_class='alert-danger', is_alert_hidden=False,
-                               form=form,
+                               form=form, title='Авторизация',
                                message="Неправильный логин или пароль")
     return render_template('Forms/login_form.html', title='Авторизация', form=form,
                            alert_class='alert-danger', is_alert_hidden=True)
