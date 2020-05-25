@@ -16,7 +16,7 @@ class NameForm(FlaskForm):
 
 
 class EmailForm(FlaskForm):
-    email = EmailField('Почта:', validators=[DataRequired()])
+    email = EmailField('Адрес эл. почты:', validators=[DataRequired()])
     password = PasswordField('Пароль:', validators=[DataRequired()])
     submit = SubmitField('Сохранить')
 

@@ -11,7 +11,7 @@ from wtforms.validators import DataRequired
 
 class RegisterForm(FlaskForm):
     name = StringField('Имя:', validators=[DataRequired()])
-    email = EmailField('Почта:', validators=[DataRequired()])
+    email = EmailField('Адрес эл. почты:', validators=[DataRequired()])
     password = PasswordField('Пароль:', validators=[DataRequired()])
     password_again = PasswordField('Повторите пароль:', validators=[DataRequired()])
     recaptcha = RecaptchaField()
@@ -19,7 +19,7 @@ class RegisterForm(FlaskForm):
 
 
 class LoginForm(FlaskForm):
-    email = EmailField('Почта:', validators=[DataRequired()])
+    email = EmailField('Адрес эл. почты:', validators=[DataRequired()])
     password = PasswordField('Пароль:', validators=[DataRequired()])
     remember_me = BooleanField('Запомнить меня')
     submit = SubmitField('Войти')
