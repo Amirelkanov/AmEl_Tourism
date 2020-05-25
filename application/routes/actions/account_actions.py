@@ -102,6 +102,13 @@ def edit_password():
                                        is_alert_hidden=is_alert_hidden, form=form,
                                        message='Новые пароли не совпадают',
                                        alert_class='alert-warning')
+
+            if len(form.new_password.data) < 8:
+                return render_template('Forms/register_form.html', title='Регистрация',
+                                       form=form,
+                                       alert_class='alert-danger', is_alert_hidden=is_alert_hidden,
+                                       message="Минимальная длина пароля - 8")
+
             user.set_password(form.new_password.data)
             db.session.add(user)
             db.session.commit()

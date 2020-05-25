@@ -19,11 +19,18 @@ def register():
 
     if form.validate_on_submit():
         is_alert_hidden = False
+
         if form.password.data != form.password_again.data:
             return render_template('Forms/register_form.html', title='Регистрация',
                                    form=form,
                                    alert_class='alert-danger', is_alert_hidden=is_alert_hidden,
                                    message="Пароли не совпадают")
+
+        if len(form.password.data) < 8:
+            return render_template('Forms/register_form.html', title='Регистрация',
+                                   form=form,
+                                   alert_class='alert-danger', is_alert_hidden=is_alert_hidden,
+                                   message="Минимальная длина пароля - 8")
 
         if User.query.filter(User.email == form.email.data).first():
             return render_template('Forms/register_form.html', title='Регистрация',
