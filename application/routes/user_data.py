@@ -29,7 +29,7 @@ def register():
         if len(form.password.data) < 8:
             return render_template('Forms/register_form.html', title='Регистрация',
                                    form=form,
-                                   alert_class='alert-danger', is_alert_hidden=is_alert_hidden,
+                                   alert_class='alert-warning', is_alert_hidden=is_alert_hidden,
                                    message="Минимальная длина пароля - 8")
 
         if User.query.filter(User.email == form.email.data).first():

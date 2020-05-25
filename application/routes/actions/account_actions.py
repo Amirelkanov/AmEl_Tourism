@@ -104,10 +104,10 @@ def edit_password():
                                        alert_class='alert-warning')
 
             if len(form.new_password.data) < 8:
-                return render_template('Forms/register_form.html', title='Регистрация',
+                return render_template('Forms/register_form.html', title='Изменение пароля',
                                        form=form,
                                        alert_class='alert-danger', is_alert_hidden=is_alert_hidden,
-                                       message="Минимальная длина пароля - 8")
+                                       message="alert-warning")
 
             user.set_password(form.new_password.data)
             db.session.add(user)
