@@ -5,6 +5,7 @@ from flask import Blueprint, render_template, redirect
 from flask_login import login_required, logout_user, login_user
 
 from ..data.users import User
+from ..extensions.const import min_length_of_password
 from ..extensions.init_models import db
 from ..extensions.init_models import login_manager
 from ..forms.user_forms import RegisterForm, LoginForm
@@ -26,11 +27,11 @@ def register():
                                    alert_class='alert-danger', is_alert_hidden=is_alert_hidden,
                                    message="Пароли не совпадают")
 
-        if len(form.password.data) < 8:
+        if len(form.password.data) < min_length_of_password:
             return render_template('Forms/register_form.html', title='Регистрация',
                                    form=form,
                                    alert_class='alert-warning', is_alert_hidden=is_alert_hidden,
-                                   message="Минимальная длина пароля - 8")
+                                   message=f"Минимальная длина пароля - {min_length_of_password}")
 
         if User.query.filter(User.email == form.email.data).first():
             return render_template('Forms/register_form.html', title='Регистрация',

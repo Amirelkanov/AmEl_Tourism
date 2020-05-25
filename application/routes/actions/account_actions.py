@@ -5,6 +5,7 @@ from flask import Blueprint, render_template, request
 from flask_login import current_user
 
 from ...data.users import User
+from ...extensions.const import min_length_of_password
 from ...extensions.formatted_datetime import get_formatted_datetime
 from ...extensions.init_models import db
 from ...forms.account_forms import NameForm, EmailForm, PasswordForm
@@ -103,11 +104,11 @@ def edit_password():
                                        message='Новые пароли не совпадают',
                                        alert_class='alert-warning')
 
-            if len(form.new_password.data) < 8:
+            if len(form.new_password.data) < min_length_of_password:
                 return render_template('Forms/password_form.html', title='Изменение пароля',
                                        form=form,
                                        alert_class='alert-warning', is_alert_hidden=is_alert_hidden,
-                                       message="Минимальная длина пароля - 8")
+                                       message=f"Минимальная длина пароля - {min_length_of_password}")
 
             user.set_password(form.new_password.data)
             db.session.add(user)

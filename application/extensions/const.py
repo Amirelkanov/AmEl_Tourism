@@ -12,6 +12,7 @@ RECAPTCHA_PUBLIC_KEY = "6Leg2OkUAAAAANYckFuHF37iwk-qv2X0QTLK2ANu"
 RECAPTCHA_PRIVATE_KEY = "6Leg2OkUAAAAAJkKR0CIhMxxIS5eu65_dZYZW4oF"
 
 min_length_of_text = 40
+min_length_of_password = 8
 max_num_of_articles_per_page = 8
 
 YANDEX_API_KEY = "d403fb88-0f79-421c-84be-8eb6eb188c65"
