@@ -104,7 +104,7 @@ def edit_password():
                                        alert_class='alert-warning')
 
             if len(form.new_password.data) < 8:
-                return render_template('Forms/register_form.html', title='Изменение пароля',
+                return render_template('Forms/password_form.html', title='Изменение пароля',
                                        form=form,
                                        alert_class='alert-danger', is_alert_hidden=is_alert_hidden,
                                        message="alert-warning")
