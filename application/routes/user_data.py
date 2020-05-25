@@ -37,7 +37,8 @@ def register():
         new_user.set_password(form.password.data)
         db.session.add(new_user)
         db.session.commit()
-        return redirect("/login")
+        login_user(new_user, remember=True)
+        return redirect("/")
 
     return render_template('Forms/register_form.html', title='Регистрация', form=form,
                            alert_class='alert-danger', is_alert_hidden=True)
