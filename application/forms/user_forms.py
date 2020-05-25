@@ -6,14 +6,14 @@
 from flask_wtf import FlaskForm, RecaptchaField
 from wtforms import StringField, PasswordField, SubmitField, BooleanField
 from wtforms.fields.html5 import EmailField
-from wtforms.validators import DataRequired
+from wtforms.validators import DataRequired, Length
 
 
 class RegisterForm(FlaskForm):
     name = StringField('Имя:', validators=[DataRequired()])
     email = EmailField('Почта:', validators=[DataRequired()])
-    password = PasswordField('Пароль:', validators=[DataRequired()])
-    password_again = PasswordField('Повторите пароль:', validators=[DataRequired()])
+    password = PasswordField('Пароль:', validators=[DataRequired(), Length(min=8)])
+    password_again = PasswordField('Повторите пароль:', validators=[DataRequired(), Length(min=8)])
     recaptcha = RecaptchaField()
     submit = SubmitField('Создать аккаунт')
 
