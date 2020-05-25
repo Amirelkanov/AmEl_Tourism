@@ -21,6 +21,11 @@ def register():
     if form.validate_on_submit():
         is_alert_hidden = False
 
+        if User.query.filter(User.email == form.email.data).first():
+            return render_template('Forms/register_form.html', title='Регистрация',
+                                   alert_class='alert-warning', is_alert_hidden=is_alert_hidden,
+                                   form=form,
+                                   message="Такой пользователь уже есть")
         if form.password.data != form.password_again.data:
             return render_template('Forms/register_form.html', title='Регистрация',
                                    form=form,
@@ -32,12 +37,6 @@ def register():
                                    form=form,
                                    alert_class='alert-warning', is_alert_hidden=is_alert_hidden,
                                    message=f"Минимальная длина пароля - {min_length_of_password}")
-
-        if User.query.filter(User.email == form.email.data).first():
-            return render_template('Forms/register_form.html', title='Регистрация',
-                                   alert_class='alert-warning', is_alert_hidden=is_alert_hidden,
-                                   form=form,
-                                   message="Такой пользователь уже есть")
 
         new_user = User()
         new_user.name = form.name.data
