@@ -19,7 +19,7 @@ def create_app(config_file='settings.py'):
     db.init_app(app)
     login_manager.init_app(app)
 
-    # ----- Adding blueprints -----
+    # ----- Blueprint registration -----
     app.register_blueprint(static_pages.main)
     app.register_blueprint(user_data.user)
 
