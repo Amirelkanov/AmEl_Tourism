@@ -6,15 +6,15 @@
 from flask import Flask
 
 from .commands import create_tables
+from .config import Config
 from .extensions.init_models import db, login_manager
 from .routes import errors_handler, user_data, static_pages
 from .routes.actions import account_actions, article_actions, category_actions, user_actions
 
 
-def create_app(config_file='settings.py'):
-
+def create_app():
     app = Flask(__name__)
-    app.config.from_pyfile(config_file)
+    app.config.from_object(Config)
 
     db.init_app(app)
     login_manager.init_app(app)
