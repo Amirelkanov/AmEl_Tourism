@@ -12,6 +12,7 @@ from .routes.actions import account_actions, article_actions, category_actions, 
 
 
 def create_app(config_file='settings.py'):
+
     app = Flask(__name__)
     app.config.from_pyfile(config_file)
 
