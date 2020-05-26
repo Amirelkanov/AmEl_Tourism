@@ -1,4 +1,7 @@
 class Config(object):
+    # Init debug status
+    DEBUG = False
+
     # Init secret key
     SECRET_KEY = 'AmEl-Tourism-key'
 
