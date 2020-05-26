@@ -13,7 +13,7 @@ from .routes.actions import account_actions, article_actions, category_actions, 
 
 
 def create_app():
-    app = Flask(__name__, instance_relative_config=True)
+    app = Flask(__name__)
 
     # Init secret key
     app.config['SECRET_KEY'] = FLASK_SECRET_KEY
