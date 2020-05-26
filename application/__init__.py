@@ -5,31 +5,20 @@
 
 from flask import Flask
 
-from commands import create_tables
-from .extensions.const import DATABASE_URL, FLASK_SECRET_KEY, RECAPTCHA_PUBLIC_KEY, RECAPTCHA_PRIVATE_KEY
+from .commands import create_tables
 from .extensions.init_models import db, login_manager
 from .routes import errors_handler, user_data, static_pages
 from .routes.actions import account_actions, article_actions, category_actions, user_actions
 
 
-def create_app():
+def create_app(config_file='settings.py'):
     app = Flask(__name__)
-
-    # Init secret key
-    app.config['SECRET_KEY'] = FLASK_SECRET_KEY
-
-    # Init recaptcha
-    app.config["RECAPTCHA_PUBLIC_KEY"] = RECAPTCHA_PUBLIC_KEY
-    app.config["RECAPTCHA_PRIVATE_KEY"] = RECAPTCHA_PRIVATE_KEY
-
-    # Init database
-    app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL
-
-    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    app.config.from_pyfile(config_file)
 
     db.init_app(app)
     login_manager.init_app(app)
 
+    # ----- Adding blueprints -----
     app.register_blueprint(static_pages.main)
     app.register_blueprint(user_data.user)
 
@@ -39,6 +28,7 @@ def create_app():
     app.register_blueprint(account_actions.account_actions)
 
     app.register_blueprint(errors_handler.errors)
+    # -----------------------------
 
     app.cli.add_command(create_tables)
 
