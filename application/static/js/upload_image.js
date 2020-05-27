@@ -11,8 +11,7 @@
             if (this.files.length > 1 && this.files) {
                 fileName = (this.getAttribute('data-multiple-caption') || '').replace('{count}',
                     this["files"].length);
-            }
-            else
+            } else
                 fileName = e.target.value.split('\\').pop();
 
             if (fileName)

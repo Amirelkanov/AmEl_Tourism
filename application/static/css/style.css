@@ -637,15 +637,6 @@ html.is-animating .transition-fade {
     padding-top: 16px;
 }
 
-.jbRlDc {
-    display: flex;
-    -webkit-box-orient: vertical;
-    flex-direction: column;
-    flex-grow: 1;
-    flex-shrink: 1;
-    flex-basis: 0;
-}
-
 .info-card-header {
     display: flex;
     flex-grow: 0;
@@ -692,15 +683,6 @@ html.is-animating .transition-fade {
     flex-grow: 1;
     flex-shrink: 1;
     flex-basis: 0;
-}
-
-.cdy4hc {
-    flex-basis: 156px;
-    -webkit-box-align: center;
-    align-items: center;
-    display: flex;
-    margin-right: 24px;
-    padding-top: 4px;
 }
 
 .desc-block-header {
