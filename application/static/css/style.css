@@ -220,58 +220,9 @@ footer {
 
 /* ------------- A R T I C L E  F O R M ------------- */
 
-
-/* Custom download file button */
-
-.inputfile {
-    width: 0.1em;
-    height: 0.1em;
-    opacity: 0;
-    overflow: hidden;
-    position: absolute;
-    z-index: -1;
+.custom-file {
+     margin-bottom: 0.5rem !important;
 }
-
-.inputfile + label {
-    max-width: 80%;
-    font-size: 1rem;
-    font-weight: 700;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    cursor: pointer;
-    display: inline-block;
-    overflow: hidden;
-    padding: 0.625rem 1.25rem;
-}
-
-.no-js .inputfile + label {
-    display: none;
-}
-
-.inputfile + label svg, label .fas {
-    width: 1em;
-    height: 1em;
-    vertical-align: middle;
-    fill: currentColor;
-    margin-top: -0.25em;
-    margin-right: 0.25em;
-}
-
-.inputfile + label {
-    color: white;
-    background-color: #007bff;
-    border-radius: 0.25rem;
-}
-
-.inputfile:focus + label,
-.inputfile.has-focus + label,
-.inputfile + label:hover {
-    background-color: #0069d9;
-    transition: all 0.3216s;
-}
-
-/* */
-
 
 /* Editor */
 
