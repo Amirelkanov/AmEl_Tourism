@@ -26,7 +26,7 @@ def add_article():
 
     if request.method == 'POST':
         is_alert_hidden = False
-        article_text = form.text.data.replace('\r\r', '<br>')
+        article_text = form.text.data.replace('\r', '<br>')
         if len(article_text.split()) < min_length_of_text:
             return render_template("Forms/article_form.html", title='Добавление статьи',
                                    form=form, alert_class='alert-danger', is_alert_hidden=is_alert_hidden,
