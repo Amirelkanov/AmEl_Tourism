@@ -5,7 +5,7 @@
 
 min_length_of_text = 40
 min_length_of_password = 8
-max_num_of_articles_per_page = 8
+max_num_of_articles_per_page = 6
 
 YANDEX_API_KEY = "d403fb88-0f79-421c-84be-8eb6eb188c65"
 CLIENT_ID = "88f8766cc5ea144"
