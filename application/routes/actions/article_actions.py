@@ -3,14 +3,13 @@
 
 from flask import Blueprint, render_template, redirect, request, abort
 from flask_login import current_user
-from werkzeug.utils import secure_filename
 
 from ...data.articles import Category, Article
 from ...extensions.const import min_length_of_text
 from ...extensions.img_tags import img_tag, group_img_tag
 from ...extensions.init_models import db
 from ...extensions.is_admin_decorator import is_user_admin
-from ...extensions.load_images import load_images
+from ...extensions.load_image import upload_image
 from ...forms.admin_forms import ArticleForm
 
 article_actions = Blueprint('article_actions', __name__)
@@ -37,29 +36,25 @@ def add_article():
 
         # ----------------------- Formatting text for article card -----------------------
 
-        # Downloading title images
-        list_of_title_imgs = request.files.getlist('thumbnail-img')
-        title_filename = load_images(list_of_title_imgs)[0]
+        # Downloading images
+        title_img, list_of_article_images = request.files.getlist('thumbnail-img')[0].read(), [i.read() for i in
+                                                                                               request.files.getlist(
+                                                                                                   'article-images')]
 
-        # Downloading article images
-        article_images = request.files.getlist('article-images')
-        name_of_article_images = \
-            [secure_filename(i.filename) for i in article_images if secure_filename(i.filename)]
+        article_images_count = len(list_of_article_images) if list_of_article_images[0] else 0
 
-        if article_text.count(img_tag) + article_text.count(group_img_tag) == len(name_of_article_images) or \
-                (len(name_of_article_images) == 1 and name_of_article_images == [''] and
-                 article_text.count(img_tag) + article_text.count(group_img_tag) ==
-                 len(name_of_article_images[0])):
+        if article_text.count(img_tag) + article_text.count(group_img_tag) == article_images_count:
 
-            name_of_article_images = load_images(article_images)
+            title_image = upload_image(title_img) if title_img else 'https://i.imgur.com/HrLbqAM.png'
+            article_images = ', '.join([upload_image(i) for i in list_of_article_images]) \
+                if list_of_article_images[0] else ''
 
             article_info = Article(title=form.title.data.strip(),
                                    author_id=current_user.id,
                                    coords=form.coords_of_place.data,
-                                   thumbnail_img=title_filename if title_filename != ''
-                                   else 'https://i.imgur.com/HrLbqAM.png',
+                                   thumbnail_img=title_image,
                                    text=article_text,
-                                   article_imgs=', '.join(name_of_article_images),
+                                   article_imgs=article_images,
                                    article_category_id=form.category.data)
             db.session.add(article_info)
             db.session.commit()
@@ -103,18 +98,20 @@ def edit_article(article_id):
             form.category.data = article_by_id.article_category_id
             title_image_name = article_by_id.thumbnail_img
             article_imgs = article_by_id.article_imgs.split(', ')
+
             length_of_article_images = len(article_imgs)
 
             if length_of_article_images > 1:
                 article_images = f'{length_of_article_images} файла(ов) выбрано'
             else:
-                if article_imgs[0] != '':
+                if article_imgs[0]:
                     article_images = article_imgs[0]
 
         else:
             abort(404)
 
     if request.method == 'POST':
+
         article_text = form.text.data.replace('\r', '<br>')
         is_alert_hidden = False
         if len(article_text.split()) < min_length_of_text:
@@ -129,32 +126,25 @@ def edit_article(article_id):
                                             Article.user == current_user).first()
         if article_info:
 
-            # Downloading title images
-            list_of_title_imgs = request.files.getlist('thumbnail-img')
-            title_filename = load_images(list_of_title_imgs)[0]
+            # Downloading images
+            title_img, list_of_article_images = request.files.getlist('thumbnail-img')[0].read(), \
+                                                [i.read() for i in request.files.getlist('article-images')]
 
-            # Downloading article images
-            article_images = request.files.getlist('article-images')
+            article_images_count = len(list_of_article_images) if list_of_article_images[0] \
+                else len(article_info.article_imgs.split(', '))
 
-            name_of_article_images = \
-                [secure_filename(i.filename) for i in article_images if secure_filename(i.filename)]
+            if article_text.count(img_tag) + article_text.count(group_img_tag) == article_images_count:
 
-            if not name_of_article_images:
-                name_of_article_images = article_info.article_imgs.split(', ')
+                title_image = upload_image(title_img) if title_img else article_info.thumbnail_img
 
-            if article_text.count(img_tag) + article_text.count(group_img_tag) == len(name_of_article_images) or \
-                    (len(name_of_article_images) == 1 and name_of_article_images == [''] and
-                     article_text.count(img_tag) + article_text.count(group_img_tag) ==
-                     len(name_of_article_images[0])):
+                article_images = [upload_image(i) for i in list_of_article_images] \
+                    if list_of_article_images[0] else article_info.article_imgs.split(', ')
 
-                name_of_article_images = load_images(article_images)
                 article_info.title = form.title.data.strip()
                 article_info.coords = form.coords_of_place.data
-                article_info.thumbnail_img = title_filename.strip() if title_filename != '' \
-                    else article_info.thumbnail_img
+                article_info.thumbnail_img = title_image
                 article_info.text = article_text
-                article_info.article_imgs = ', '.join(name_of_article_images) if len(name_of_article_images[0]) > 0 \
-                    else article_info.article_imgs
+                article_info.article_imgs = ', '.join(article_images)
                 article_info.article_category_id = form.category.data
                 db.session.add(article_info)
                 db.session.commit()

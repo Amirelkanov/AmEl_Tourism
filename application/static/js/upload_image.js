@@ -2,12 +2,14 @@
 
 (function (document, window, index) {
     let inputs = document.querySelectorAll('.inputfile');
+
     Array.prototype.forEach.call(inputs, function (input) {
         let label = input.nextElementSibling,
             labelVal = label.innerHTML;
 
         input.addEventListener('change', function (e) {
             let fileName;
+
             if (this.files.length > 1 && this.files) {
                 fileName = (this.getAttribute('data-multiple-caption') || '').replace('{count}',
                     this["files"].length);
@@ -27,5 +29,6 @@
         input.addEventListener('blur', function () {
             input.classList.remove('has-focus');
         });
+
     });
 }(document, window, 0));
