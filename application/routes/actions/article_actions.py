@@ -130,7 +130,8 @@ def edit_article(article_id):
             title_img, list_of_article_images = request.files.getlist('thumbnail-img')[0].read(), \
                                                 [i.read() for i in request.files.getlist('article-images')]
 
-            article_images_count = len(list_of_article_images) if list_of_article_images[0] else 0
+            article_images_count = len(list_of_article_images) if list_of_article_images[0] else len(
+                article_info.article_imgs.split(', ')) if article_info.article_imgs else 0
 
             if article_text.count(img_tag) + article_text.count(group_img_tag) == article_images_count:
 
