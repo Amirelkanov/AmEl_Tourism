@@ -130,8 +130,7 @@ def edit_article(article_id):
             title_img, list_of_article_images = request.files.getlist('thumbnail-img')[0].read(), \
                                                 [i.read() for i in request.files.getlist('article-images')]
 
-            article_images_count = len(list_of_article_images) if list_of_article_images[0] \
-                else len(article_info.article_imgs.split(', '))
+            article_images_count = len(list_of_article_images) if list_of_article_images[0] else 0
 
             if article_text.count(img_tag) + article_text.count(group_img_tag) == article_images_count:
 
@@ -153,7 +152,7 @@ def edit_article(article_id):
                 return render_template("Forms/article_form.html", title='Редактирование статьи',
                                        form=form, alert_class='alert-danger', is_alert_hidden=is_alert_hidden,
                                        message="Кол-во указанных изображений не соответствует загруженным",
-                                       title_image_name='Титульное изображение',
+                                       title_image_name=article_info.thumbnail_img,
                                        article_images='Загрузить изображения', submit_button_text='Сохранить')
             # --------------------------------------------------------------------------------
 
