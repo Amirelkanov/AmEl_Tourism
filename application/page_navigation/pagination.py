@@ -7,13 +7,13 @@ from math import ceil
 
 from flask import render_template, abort
 
+from ..extensions.const import max_num_of_articles_per_page
 from ..extensions.img_tags import img_tag, group_img_tag, img_group_tag, img_group_closing_tag
 
 
 class PageNavigation:
 
     def __init__(self, page_id, category):
-        self.max_num_of_articles_per_page = 8
         self.page_id = page_id
         self.category = category
 
@@ -22,9 +22,9 @@ class PageNavigation:
         href = f'/page' if is_index else f'/category/{category_id[0]}/page'
 
         return render_template('index.html', title='AmEl Tourism',
-                               places=places[self.max_num_of_articles_per_page * (self.page_id - 1):
-                                             self.max_num_of_articles_per_page * self.page_id],
-                               pages_info=self.pages_info(ceil(len(places) / self.max_num_of_articles_per_page)),
+                               places=places[max_num_of_articles_per_page * (self.page_id - 1):
+                                             max_num_of_articles_per_page * self.page_id],
+                               pages_info=self.pages_info(ceil(len(places) / max_num_of_articles_per_page)),
                                page_id=self.page_id, href=href, category_list=self.category.query,
                                img_tag=img_tag, group_img_tag=group_img_tag, img_group_tag=img_group_tag,
                                img_group_closing_tag=img_group_closing_tag)
