@@ -1,3 +1,7 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+
 class Config(object):
     # Init debug status
     DEBUG = False

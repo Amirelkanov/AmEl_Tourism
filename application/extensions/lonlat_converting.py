@@ -1,4 +1,7 @@
-from application.extensions.const import lonlat_factor
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+from .const import lonlat_factor
 
 
 def lonlat_to_bounds(lonlat):
