@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from flask import Blueprint, render_template, request
-from flask_login import current_user
+from flask_login import current_user, login_required
 
 from ...data.users import User
 from ...extensions.const import min_length_of_password
@@ -15,6 +15,7 @@ account_actions = Blueprint('account_actions', __name__)
 
 # Page showing account info
 @account_actions.route('/account')
+@login_required
 def account():
     return render_template('account.html', title='Аккаунт',
                            user_registration_date=get_formatted_datetime(current_user.registration_date))
@@ -22,6 +23,7 @@ def account():
 
 # Edit name form
 @account_actions.route('/account/name', methods=['GET', 'POST'])
+@login_required
 def edit_name():
     form = NameForm()
     if request.method == 'GET':
@@ -51,6 +53,7 @@ def edit_name():
 
 # Edit email form
 @account_actions.route('/account/email', methods=['GET', 'POST'])
+@login_required
 def edit_email():
     form = EmailForm()
     if request.method == 'GET':
@@ -85,6 +88,7 @@ def edit_email():
 
 # Edit password form
 @account_actions.route('/account/password', methods=['GET', 'POST'])
+@login_required
 def edit_password():
     form = PasswordForm()
     if request.method == 'POST':
