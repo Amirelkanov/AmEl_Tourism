@@ -580,11 +580,9 @@ html.is-animating .transition-fade {
 
 .ymaps-geolink {
     display: inline !important;
-    position: relative;
     margin-left: 0 !important;
     color: black !important;
     line-height: 42px !important;
-    height: auto !important;
 }
 
 .ymaps-geolink::before, .ymaps-geolink::after {
