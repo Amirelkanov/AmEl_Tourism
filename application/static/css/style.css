@@ -40,19 +40,34 @@
 
 /* --- Error page --- */
 
-.box-noresults {
+.error-box {
     width: 500px;
     max-width: 100%;
     margin: 7% auto;
     text-align: center;
-    font-size: 14px;
-    font-weight: 400;
 }
 
 .error-font {
     font-family: titillium web, sans-serif;
     padding-top: 1rem;
     text-align: center;
+}
+
+@media all and (max-width: 500px) {
+
+    .error-box svg {
+        width: 300px;
+        height: 300px;
+    }
+
+    .error-box h1 {
+        font-size: 2rem;
+    }
+
+    .error-box h5 {
+        font-size: 1rem;
+    }
+
 }
 
 /* ------------------ */
