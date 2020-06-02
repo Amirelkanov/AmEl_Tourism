@@ -1,3 +1,7 @@
+html, body {
+    touch-action: auto;
+}
+
 /* ------- Header ------- */
 
 .navbar-dark .navbar-nav .nav-link:hover {
