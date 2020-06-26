@@ -24,7 +24,7 @@ class User(db.Model, UserMixin, SerializerMixin):
     email = db.Column(db.String,
                       unique=True, nullable=False)
     hashed_password = db.Column(db.String, nullable=False)
-    is_admin = db.Column(db.Boolean, default=True, nullable=False)
+    is_admin = db.Column(db.Boolean, default=False, nullable=False)
     registration_date = db.Column(db.DateTime,
                                   default=datetime.datetime.now)
 

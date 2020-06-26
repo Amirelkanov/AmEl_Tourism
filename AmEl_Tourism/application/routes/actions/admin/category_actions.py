@@ -15,7 +15,8 @@ category_actions = Blueprint('category_actions', __name__)
 
 
 @category_actions.route('/categories')
-@category_actions.route('/categories/sort_by/<string:sort_by_element>/is_reversed=<int:is_reversed>')
+@category_actions.route('/categories/sort_by/<string:sort_by_element>/'
+                        'is_reversed=<int:is_reversed>')
 @is_user_admin
 def categories(sort_by_element: str = 'id', is_reversed: int = 0):
     """ Showing page with list of categories
@@ -26,9 +27,11 @@ def categories(sort_by_element: str = 'id', is_reversed: int = 0):
     sorting_elem = Category.__dict__[sort_by_element]
     order_by_arg = db.desc(sorting_elem) if is_reversed else sorting_elem
     return render_template('Admin/categories.html', title='Список категорий',
-                           columns_name=Category.category_columns_name, sort_by_element=sort_by_element,
+                           columns_name=Category.category_columns_name,
+                           sort_by_element=sort_by_element,
                            is_reversed=(is_reversed, int(not is_reversed)),
-                           list_of_categories=Category.query.order_by(order_by_arg).all())
+                           list_of_categories=Category.query.order_by(
+                               order_by_arg).all())
 
 
 # Add category form
@@ -45,11 +48,13 @@ def add_category():
 
         return redirect('/categories')
 
-    return render_template('Forms/category_form.html', title='Добавление категории',
+    return render_template('Forms/category_form.html',
+                           title='Добавление категории',
                            form=form, submit_button_text="Добавить")
 
 
-@category_actions.route('/edit_category/<int:category_id>', methods=['GET', 'POST'])
+@category_actions.route('/edit_category/<int:category_id>',
+                        methods=['GET', 'POST'])
 @is_user_admin
 def edit_category(category_id: int):
     """ Edit category form
@@ -74,11 +79,13 @@ def edit_category(category_id: int):
             db.session.commit()
         return redirect('/categories')
 
-    return render_template('Forms/category_form.html', title='Редактирование категории',
+    return render_template('Forms/category_form.html',
+                           title='Редактирование категории',
                            form=form, submit_button_text="Сохранить")
 
 
-@category_actions.route('/delete_category/<int:category_id>', methods=['GET', 'POST'])
+@category_actions.route('/delete_category/<int:category_id>',
+                        methods=['GET', 'POST'])
 @is_user_admin
 def delete_category(category_id: int):
     """ Deleting category
