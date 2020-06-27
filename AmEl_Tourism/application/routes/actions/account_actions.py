@@ -21,7 +21,8 @@ account_actions = Blueprint('account_actions', __name__)
 @login_required
 def account():
     return render_template('account.html', title='Аккаунт',
-                           user_registration_date=get_formatted_datetime(current_user.registration_date))
+                           user_registration_date=get_formatted_datetime(
+                               current_user.registration_date))
 
 
 # Edit name form
@@ -38,9 +39,11 @@ def edit_name():
 
         # ERROR: Incorrect password
         if not user.check_password(form.password.data):
-            return render_template('Forms/name_form.html', title='Изменение имени',
+            return render_template('Forms/name_form.html',
+                                   title='Изменение имени',
                                    is_alert_hidden=is_alert_hidden, form=form,
-                                   message='Введён неправильный пароль', alert_class='alert-danger')
+                                   message='Введён неправильный пароль',
+                                   alert_class='alert-danger')
 
         if user:
             # Adding and committing changes to the DB
@@ -50,7 +53,8 @@ def edit_name():
 
         return render_template('Forms/name_form.html', title='Изменение имени',
                                is_alert_hidden=is_alert_hidden, form=form,
-                               message='Имя успешно изменено!', alert_class='alert-success')
+                               message='Имя успешно изменено!',
+                               alert_class='alert-success')
 
     return render_template('Forms/name_form.html', title='Изменение имени',
                            form=form, is_alert_hidden=True)
@@ -70,17 +74,25 @@ def edit_email():
 
         # ERROR: Incorrect password
         if not user.check_password(form.password.data):
-            return render_template('Forms/email_form.html', title='Изменение почты',
+            return render_template('Forms/email_form.html',
+                                   title='Изменение почты',
                                    is_alert_hidden=is_alert_hidden, form=form,
-                                   message='Введён неправильный пароль', alert_class='alert-danger')
+                                   message='Введён неправильный пароль',
+                                   alert_class='alert-danger')
 
         if user:
-            # WARNING: The email address you entered is already being used on another account
-            if User.query.filter_by(email=form.email.data).first().id != current_user.id:
+            # WARNING: The email address you entered is already being used
+            # on another account
+            if User.query.filter_by(
+                    email=form.email.data).first().id != current_user.id:
                 form.email.data = current_user.email
-                return render_template('Forms/email_form.html', title='Изменение почты',
-                                       is_alert_hidden=is_alert_hidden, form=form,
-                                       message='Введёный адрес электронной почты уже используется на другом аккаунте',
+                return render_template('Forms/email_form.html',
+                                       title='Изменение почты',
+                                       is_alert_hidden=is_alert_hidden,
+                                       form=form,
+                                       message='Введёный адрес электронной '
+                                               'почты уже используется на '
+                                               'другом аккаунте',
                                        alert_class='alert-warning')
 
             # Adding and committing changes to the DB
@@ -90,9 +102,11 @@ def edit_email():
 
         return render_template('Forms/email_form.html', title='Изменение почты',
                                is_alert_hidden=is_alert_hidden, form=form,
-                               message='Адрес почты успешно изменён!', alert_class='alert-success')
+                               message='Адрес почты успешно изменён!',
+                               alert_class='alert-success')
 
-    return render_template('Forms/email_form.html', title='Изменение почты', form=form, is_alert_hidden=True)
+    return render_template('Forms/email_form.html', title='Изменение почты',
+                           form=form, is_alert_hidden=True)
 
 
 # Edit password form
@@ -106,7 +120,8 @@ def edit_password():
 
         # ERROR: Incorrect password
         if not user.check_password(form.current_password.data):
-            return render_template('Forms/password_form.html', title='Изменение пароля',
+            return render_template('Forms/password_form.html',
+                                   title='Изменение пароля',
                                    is_alert_hidden=is_alert_hidden, form=form,
                                    message='Текущий пароль введён неправильно',
                                    alert_class='alert-danger')
@@ -114,26 +129,34 @@ def edit_password():
         if user:
             # WARNING: New passwords don't match
             if form.new_password.data != form.new_password_again.data:
-                return render_template('Forms/password_form.html', title='Изменение пароля',
-                                       is_alert_hidden=is_alert_hidden, form=form,
+                return render_template('Forms/password_form.html',
+                                       title='Изменение пароля',
+                                       is_alert_hidden=is_alert_hidden,
+                                       form=form,
                                        message='Новые пароли не совпадают',
                                        alert_class='alert-warning')
 
-            # WARNING: The length of the entered password is less than the allowed length
+            # WARNING: The length of the entered password is less than
+            # the allowed length
             if len(form.new_password.data) < min_length_of_password:
-                return render_template('Forms/password_form.html', title='Изменение пароля',
+                return render_template('Forms/password_form.html',
+                                       title='Изменение пароля',
                                        form=form,
-                                       alert_class='alert-warning', is_alert_hidden=is_alert_hidden,
-                                       message=f"Минимальная длина пароля - {min_length_of_password}")
+                                       alert_class='alert-warning',
+                                       is_alert_hidden=is_alert_hidden,
+                                       message=f"Минимальная длина пароля -"
+                                               f" {min_length_of_password}")
 
             # Adding and committing changes to the DB
             user.set_password(form.new_password.data)
             db.session.add(user)
             db.session.commit()
 
-        return render_template('Forms/password_form.html', title='Изменение пароля',
+        return render_template('Forms/password_form.html',
+                               title='Изменение пароля',
                                is_alert_hidden=is_alert_hidden, form=form,
-                               message='Пароль успешно изменён!', alert_class='alert-success')
+                               message='Пароль успешно изменён!',
+                               alert_class='alert-success')
 
     return render_template('Forms/password_form.html', title='Изменение пароля',
                            form=form, is_alert_hidden=True)
