@@ -69,7 +69,7 @@ def article(article_id: int) -> str:
                                        api_key=YANDEX_API_KEY,
                                        bounds_of_place=lonlat_to_bounds(
                                            article_info.coords.split(', ')),
-                                       related_posts=related_posts),
+                                       related_posts=related_posts)
     rendered_page = BeautifulSoup(article_template, 'lxml')
 
     article_images, article_text = article_info.article_imgs.split(
