@@ -25,24 +25,32 @@ def register():
 
         # WARNING: This user already exists
         if User.query.filter(User.email == form.email.data).first():
-            return render_template('Forms/register_form.html', title='Регистрация',
-                                   alert_class='alert-warning', is_alert_hidden=is_alert_hidden,
+            return render_template('Forms/register_form.html',
+                                   title='Регистрация',
+                                   alert_class='alert-warning',
+                                   is_alert_hidden=is_alert_hidden,
                                    form=form,
                                    message="Такой пользователь уже есть")
 
         # ERROR: Passwords don't match
         if form.password.data != form.password_again.data:
-            return render_template('Forms/register_form.html', title='Регистрация',
+            return render_template('Forms/register_form.html',
+                                   title='Регистрация',
                                    form=form,
-                                   alert_class='alert-danger', is_alert_hidden=is_alert_hidden,
+                                   alert_class='alert-danger',
+                                   is_alert_hidden=is_alert_hidden,
                                    message="Пароли не совпадают")
 
-        # WARNING: The length of the entered password is less than the allowed length
+        # WARNING: The length of the entered password is
+        # less than the allowed length
         if len(form.password.data) < min_length_of_password:
-            return render_template('Forms/register_form.html', title='Регистрация',
+            return render_template('Forms/register_form.html',
+                                   title='Регистрация',
                                    form=form,
-                                   alert_class='alert-warning', is_alert_hidden=is_alert_hidden,
-                                   message=f"Минимальная длина пароля - {min_length_of_password}")
+                                   alert_class='alert-warning',
+                                   is_alert_hidden=is_alert_hidden,
+                                   message=f"Минимальная длина пароля - "
+                                           f"{min_length_of_password}")
         # -----------------------
 
         # Adding and committing changes to the DB
@@ -56,8 +64,9 @@ def register():
         login_user(new_user, remember=True)
         return redirect("/")
 
-    return render_template('Forms/register_form.html', title='Регистрация', form=form,
-                           alert_class='alert-danger', is_alert_hidden=True)
+    return render_template('Forms/register_form.html', title='Регистрация',
+                           form=form, alert_class='alert-danger',
+                           is_alert_hidden=True)
 
 
 # Login form
@@ -73,11 +82,14 @@ def login():
             return redirect("/")
 
         return render_template('Forms/login_form.html',
-                               alert_class='alert-danger', is_alert_hidden=False,
-                               form=form, title='Авторизация',
+                               alert_class='alert-danger',
+                               is_alert_hidden=False, form=form,
+                               title='Авторизация',
                                message="Неправильный логин или пароль")
-    return render_template('Forms/login_form.html', title='Авторизация', form=form,
-                           alert_class='alert-danger', is_alert_hidden=True)
+
+    return render_template('Forms/login_form.html', title='Авторизация',
+                           form=form, alert_class='alert-danger',
+                           is_alert_hidden=True)
 
 
 @login_manager.user_loader
