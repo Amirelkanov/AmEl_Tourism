@@ -22,7 +22,10 @@ class EmailForm(FlaskForm):
 
 
 class PasswordForm(FlaskForm):
-    current_password = PasswordField('Текущий пароль:', validators=[DataRequired()])
-    new_password = PasswordField('Новый пароль:', validators=[DataRequired()])
-    new_password_again = PasswordField('Повторите новый пароль:', validators=[DataRequired()])
+    current_password = PasswordField('Текущий пароль:',
+                                     validators=[DataRequired()])
+    new_password = PasswordField('Новый пароль:',
+                                 validators=[DataRequired()])
+    new_password_again = PasswordField('Повторите новый пароль:',
+                                       validators=[DataRequired()])
     submit = SubmitField('Сохранить')
