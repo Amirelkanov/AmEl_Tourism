@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from requests import post
+
 from .const import CLIENT_ID, imgur_api_url
 
 
