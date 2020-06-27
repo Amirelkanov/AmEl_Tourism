@@ -10,12 +10,16 @@ from wtforms.validators import DataRequired
 
 class ArticleForm(FlaskForm):
     title = StringField('Заголовок:', validators=[DataRequired()])
-    coords_of_place = StringField('Координаты места:', validators=[DataRequired()])
-    text = TextAreaField('Введите текст для статьи:', validators=[DataRequired()])
-    category = SelectField('Выберите категорию:', validators=[DataRequired()])
+    coords_of_place = StringField('Координаты места:',
+                                  validators=[DataRequired()])
+    text = TextAreaField('Введите текст для статьи:',
+                         validators=[DataRequired()])
+    category = SelectField('Выберите категорию:',
+                           validators=[DataRequired()])
     submit = SubmitField()
 
 
 class CategoryForm(FlaskForm):
-    name_of_category = StringField('Название категории:', validators=[DataRequired()])
+    name_of_category = StringField('Название категории:',
+                                   validators=[DataRequired()])
     submit = SubmitField()
