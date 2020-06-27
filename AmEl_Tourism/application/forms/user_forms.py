@@ -13,7 +13,8 @@ class RegisterForm(FlaskForm):
     name = StringField('Имя:', validators=[DataRequired()])
     email = EmailField('Адрес эл. почты:', validators=[DataRequired()])
     password = PasswordField('Пароль:', validators=[DataRequired()])
-    password_again = PasswordField('Повторите пароль:', validators=[DataRequired()])
+    password_again = PasswordField('Повторите пароль:',
+                                   validators=[DataRequired()])
     recaptcha = RecaptchaField()
     submit = SubmitField('Создать аккаунт')
 
