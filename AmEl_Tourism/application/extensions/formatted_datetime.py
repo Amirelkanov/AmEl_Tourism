@@ -11,4 +11,5 @@ def get_formatted_datetime(datetime) -> str:
     :param datetime: datetime to format
     """
 
-    return datetime.strftime(f'{datetime.day} {RU_MONTH_VALUES[datetime.month]} %Y %H:%M')
+    return datetime.strftime(f'{datetime.day} '
+                             f'{RU_MONTH_VALUES[datetime.month]} %Y %H:%M')
