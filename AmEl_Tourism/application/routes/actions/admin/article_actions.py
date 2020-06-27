@@ -242,7 +242,8 @@ def edit_article(article_id):
                                        is_alert_hidden=is_alert_hidden,
                                        message="Кол-во указанных изображений не"
                                                " соответствует загруженным",
-                                       title_image_name=article_info.thumbnail_img,
+                                       title_image_name=article_info.
+                                       thumbnail_img,
                                        article_images='Загрузить изображения',
                                        submit_button_text='Сохранить')
             # ------------------------------------------------------------------
