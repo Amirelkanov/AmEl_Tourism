@@ -55,21 +55,23 @@ class PageNavigation:
         pervpage, nextpage = self.checking_nav_arrows(1, '«'), \
                              self.checking_nav_arrows(total, '»')
 
-        page1left, page1right = self.page_id - 1 if self.page_id - 1 > 0 else '', \
-                                self.page_id + 1 if self.page_id + 1 <= total else ''
+        page1left, page1right = self.page_id - 1 \
+                                    if self.page_id - 1 > 0 else '', \
+                                self.page_id + 1 \
+                                    if self.page_id + 1 <= total else ''
 
         page2left, page2right = (self.page_id - 2 if nextpage[
             -1] else 1) if self.page_id - 2 > 0 else '', \
-                                (self.page_id + 2 if pervpage[
-                                    -1] else total) if self.page_id + 2 <= total else ''
+                                (self.page_id + 2 if pervpage[-1] else total) \
+                                if self.page_id + 2 <= total else ''
 
         filtered_list_of_pages: list = sorted(
             [i for i in
              [page2left, page1left, self.page_id, page1right, page2right] if i])
         for i, j in enumerate(filtered_list_of_pages):
             if (pervpage[-1] or nextpage[-1]) and (
-                    type(j) == int and i + 1 < len(
-                filtered_list_of_pages) and j + 1 != filtered_list_of_pages[
+                    type(j) == int and i + 1 < len(filtered_list_of_pages) and
+                    j + 1 != filtered_list_of_pages[
                         i + 1]):
                 filtered_list_of_pages.insert(i + 1, ('..', False))
                 break
