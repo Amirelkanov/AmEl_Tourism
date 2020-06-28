@@ -9,12 +9,12 @@ from .config import Config
 from .extensions.init_models import db, login_manager
 from .routes import errors_handler, user_data, static_pages
 from .routes.actions import account_actions
-from .routes.actions.admin import article_actions, category_actions, user_actions
+from .routes.actions.admin import article_actions, category_actions, \
+    user_actions
 
 
 # Create app function
 def create_app():
-
     # Init app
     app = Flask(__name__)
     app.config.from_object(Config)
