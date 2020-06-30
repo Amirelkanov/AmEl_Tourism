@@ -41,3 +41,11 @@ class User(db.Model, UserMixin, SerializerMixin):
 
     def check_password(self, password):
         return check_password_hash(self.hashed_password, password)
+
+
+class UserInfo(db.Model):
+    """ User info model initialization class """
+
+    __tablename__ = 'user_info'
+    user_id = db.Column(db.Integer, primary_key=True)
+    coords = db.Column(db.String, nullable=True)
