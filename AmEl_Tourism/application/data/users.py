@@ -49,3 +49,4 @@ class UserInfo(db.Model):
     __tablename__ = 'user_info'
     user_id = db.Column(db.Integer, primary_key=True)
     coords = db.Column(db.String, nullable=True)
+    page = db.Column(db.Integer, nullable=False, default=1)
