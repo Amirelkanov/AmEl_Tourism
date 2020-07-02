@@ -24,7 +24,7 @@ def categories(sort_by_element: str = 'id', is_reversed: int = 0):
     :param is_reversed: whether sorting is reversed
     """
 
-    sorting_elem = Category.__dict__[sort_by_element]
+    sorting_elem: str = Category.__dict__.get(sort_by_element, 'id')
     order_by_arg = db.desc(sorting_elem) if is_reversed else sorting_elem
     return render_template('Admin/categories.html', title='Список категорий',
                            columns_name=Category.category_columns_name,

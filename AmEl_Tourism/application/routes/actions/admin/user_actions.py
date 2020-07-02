@@ -23,7 +23,7 @@ def users(sort_by_element: str = 'id', is_reversed: int = 0):
     :param is_reversed: whether sorting is reversed
     """
 
-    sorting_elem: str = User.__dict__[sort_by_element]
+    sorting_elem: str = User.__dict__.get(sort_by_element, 'id')
     order_by_arg = db.desc(sorting_elem) if is_reversed else sorting_elem
     return render_template('Admin/users.html', title='Список пользователей',
                            columns_name=User.user_columns_name,

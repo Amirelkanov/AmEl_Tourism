@@ -6,7 +6,7 @@ class Config(object):
     """ Class for init app configuration """
 
     # Init debug status
-    DEBUG = True
+    DEBUG = False
 
     # Init secret key
     SECRET_KEY = 'AmEl-Tourism-Secret-Key'
