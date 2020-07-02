@@ -41,7 +41,8 @@ class Category(db.Model, SerializerMixin):
     """ Category model initialization class """
 
     __tablename__ = 'categories'
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True,
+                   autoincrement=True)
     name_of_category = db.Column(db.String, nullable=False)
 
     user = db.relation("Article")
