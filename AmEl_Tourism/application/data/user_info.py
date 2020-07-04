@@ -11,3 +11,12 @@ class TGUserInfo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     coords = db.Column(db.String, nullable=True)
     page = db.Column(db.Integer, nullable=False, default=1)
+
+
+class VKUserInfo(db.Model):
+    """ VK User info model initialization class """
+
+    __tablename__ = 'vk_user_info'
+    id = db.Column(db.Integer, primary_key=True)
+    coords = db.Column(db.String, nullable=True)
+    page = db.Column(db.Integer, nullable=False, default=1)
