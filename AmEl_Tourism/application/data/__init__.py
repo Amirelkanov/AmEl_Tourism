@@ -2,5 +2,5 @@
 # -*- coding: utf-8 -*-
 
 from .articles import Article, Category
-from .user_info import TGUserInfo, VKUserInfo
+from .user_info import TGUserInfo
 from .users import User
