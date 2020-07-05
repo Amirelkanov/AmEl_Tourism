@@ -2,12 +2,15 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <!-- Description -->
-    <meta name="keywords" content="amel, tourism, туризм, достопримечательности, места">
-    <meta name="description" content="AmEl Tourism - сайт, предназначенный помогать туристам ориентироваться в городе.">
+    <meta name="keywords"
+          content="amel, tourism, туризм, достопримечательности, места">
+    <meta name="description"
+          content="AmEl Tourism - сайт, предназначенный помогать туристам ориентироваться в городе.">
     <!-- ----------- -->
 
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
@@ -17,8 +20,10 @@
     <link rel="stylesheet" type="text/css" href="/static/css/theme.css">
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins"
+          rel="stylesheet">
     <!-- ----- -->
 
     <!-- Wordpress CSS -->
@@ -34,10 +39,12 @@
     <!-- ------------- -->
 
     <title>{{ title }}</title>
-    <link rel="shortcut icon" type="image/svg" href="https://svgshare.com/i/L1B.svg">
+    <link rel="shortcut icon" type="image/svg"
+          href="https://svgshare.com/i/L1B.svg">
 
     <!-- Init vk comment widget -->
-    <script type="text/javascript" src="https://vk.com/js/api/openapi.js?168"></script>
+    <script type="text/javascript"
+            src="https://vk.com/js/api/openapi.js?168"></script>
     <script type="text/javascript">
         VK.init({apiId: 7475391, onlyWidgets: true});
     </script>
@@ -54,16 +61,20 @@
     <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top pt-1 pb-1 z-index-30">
         <div class="container px-0">
             <a class="navbar-brand" href="/" title="AmEl Tourism">
-                <img src="https://svgshare.com/i/L1B.svg" alt="AmEl Tourism Logo" width="56"
+                <img src="https://svgshare.com/i/L1B.svg"
+                     alt="AmEl Tourism Logo" width="56"
                      class="d-inline-block align-middle mr-2 my-2 my-lg-0"/>
             </a>
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-info-actions"
-                    aria-controls="navbar-info-actions" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbar-info-actions"
+                    aria-controls="navbar-info-actions" aria-expanded="false"
+                    aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="navbar-info-actions" style="font-size: 18px">
+            <div class="collapse navbar-collapse" id="navbar-info-actions"
+                 style="font-size: 18px">
                 <ul class="navbar-nav mr-auto">
 
                     <li class="nav-item">
@@ -75,10 +86,13 @@
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="contact-menu" data-toggle="dropdown"
-                           aria-haspopup="true" aria-expanded="false">Контакты</a>
+                        <a class="nav-link dropdown-toggle" href="#"
+                           id="contact-menu" data-toggle="dropdown"
+                           aria-haspopup="true"
+                           aria-expanded="false">Контакты</a>
 
-                        <div class="dropdown-menu" aria-labelledby="contact-menu">
+                        <div class="dropdown-menu"
+                             aria-labelledby="contact-menu">
                             <a class="dropdown-item"
                                href="#" target="_blank">
                                 Мы в Twitter
@@ -89,11 +103,13 @@
                             </a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item"
-                               href="#" target="_blank">
+                               href="https://vk.com/amel_tourism_bot"
+                               target="_blank">
                                 VK бот
                             </a>
                             <a class="dropdown-item"
-                               href="#" target="_blank">
+                               href="https://teleg.one/AmEl_tourism_bot"
+                               target="_blank">
                                 Telegram бот
                             </a>
                         </div>
@@ -106,20 +122,27 @@
                 <ul class="navbar-nav ml-auto">
                     {% if current_user.is_authenticated %}
                         <li class="dropdown d-md-none">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAccount" role="button"
-                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fa fa-user mr-2"></i>{{ current_user.name }}</a>
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownAccount">
-                                <a class="dropdown-item" href="/account">Учетная запись</a>
+                            <a class="nav-link dropdown-toggle" href="#"
+                               id="navbarDropdownAccount" role="button"
+                               data-toggle="dropdown" aria-haspopup="true"
+                               aria-expanded="false">
+                                <i class="fa fa-user mr-2"></i>{{ current_user.name }}
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right"
+                                 aria-labelledby="navbarDropdownAccount">
+                                <a class="dropdown-item" href="/account">Учетная
+                                    запись</a>
 
                                 {% if current_user.is_authenticated and current_user.is_admin %}
 
                                     <div class="dropdown-divider"></div>
 
-                                    <a class="dropdown-item" href="/add_article">
+                                    <a class="dropdown-item"
+                                       href="/add_article">
                                         Добавить статью
                                     </a>
-                                    <a class="dropdown-item" href="/add_category">
+                                    <a class="dropdown-item"
+                                       href="/add_category">
                                         Добавить категорию
                                     </a>
                                     <div class="dropdown-divider"></div>
@@ -134,25 +157,32 @@
 
                                 <div class="dropdown-divider"></div>
 
-                                <a class="dropdown-item" href="/logout">Выйти</a>
+                                <a class="dropdown-item"
+                                   href="/logout">Выйти</a>
                             </div>
                         </li>
 
                         <li class="dropdown d-none d-md-block">
-                            <a class="btn btn-outline-light dropdown-toggle" href="#" id="navbarDropdownAccount"
-                               role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="btn btn-outline-light dropdown-toggle"
+                               href="#" id="navbarDropdownAccount"
+                               role="button" data-toggle="dropdown"
+                               aria-haspopup="true" aria-expanded="false">
                                 <i class="fa fa-user mr-2"></i><span>{{ current_user.name }}</span></a>
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownAccount">
-                                <a class="dropdown-item" href="/account">Учетная запись</a>
+                            <div class="dropdown-menu dropdown-menu-right"
+                                 aria-labelledby="navbarDropdownAccount">
+                                <a class="dropdown-item" href="/account">Учетная
+                                    запись</a>
 
                                 {% if current_user.is_authenticated and current_user.is_admin %}
 
                                     <div class="dropdown-divider"></div>
 
-                                    <a class="dropdown-item" href="/add_article">
+                                    <a class="dropdown-item"
+                                       href="/add_article">
                                         Добавить статью
                                     </a>
-                                    <a class="dropdown-item" href="/add_category">
+                                    <a class="dropdown-item"
+                                       href="/add_category">
                                         Добавить категорию
                                     </a>
                                     <div class="dropdown-divider"></div>
@@ -167,18 +197,22 @@
 
                                 <div class="dropdown-divider"></div>
 
-                                <a class="dropdown-item" href="/logout">Выйти</a>
+                                <a class="dropdown-item"
+                                   href="/logout">Выйти</a>
                             </div>
                         </li>
 
                     {% else %}
                         <li class="nav-item d-none d-md-block">
-                            <a class="btn btn-outline-light" role="button" href="/login">
-                                <i class="fas fa-user mr-2"></i><span class="ml-0">Войти</span></a>
+                            <a class="btn btn-outline-light" role="button"
+                               href="/login">
+                                <i class="fas fa-user mr-2"></i><span
+                                    class="ml-0">Войти</span></a>
                         </li>
                         <li class="nav-item d-md-none">
                             <a class="nav-link" href="/login">
-                                <i class="fas fa-user mr-2"></i><span class="ml-0">Войти</span></a></li>
+                                <i class="fas fa-user mr-2"></i><span
+                                    class="ml-0">Войти</span></a></li>
                     {% endif %}
                 </ul>
             </div>
@@ -203,11 +237,12 @@
             <div class="footer-icons social-links">
 
                 <!-- VK Icon -->
-                <a href="#" title="VK бот"
+                <a href="https://vk.com/amel_tourism_bot" title="VK бот"
                    target="_blank" class="fab fa-vk"></a>
 
                 <!-- Telegram Icon -->
-                <a href="#" title="Telegram бот"
+                <a href="https://teleg.one/AmEl_tourism_bot"
+                   title="Telegram бот"
                    target="_blank" class="fab fa-telegram"></a>
 
                 <!-- Facebook Icon -->
@@ -229,7 +264,8 @@
 </div>
 
 <script src="/static/js/tooltip.js"></script>
-<script src="https://kit.fontawesome.com/6194f71773.js" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/6194f71773.js"
+        crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
