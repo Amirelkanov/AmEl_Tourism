@@ -7,7 +7,6 @@ from math import ceil
 
 from flask import render_template, abort
 
-from ..data.articles import Category
 from ..extensions.const import max_num_of_articles_per_page
 from ..extensions.img_tags import img_tag, group_img_tag, img_group_tag, \
     img_group_closing_tag
