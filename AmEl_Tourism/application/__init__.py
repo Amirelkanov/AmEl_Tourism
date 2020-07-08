@@ -15,6 +15,7 @@ from .routes.actions.admin import article_actions, category_actions, \
 
 # Create app function
 def create_app():
+
     # Init app
     app = Flask(__name__)
     app.config.from_object(Config)
