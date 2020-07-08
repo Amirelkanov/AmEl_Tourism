@@ -13,7 +13,7 @@ from ..extensions.img_tags import img_tag, group_img_tag, img_group_tag, \
     img_group_closing_tag
 
 
-class PageNavigation:
+class PageNavigation(object):
     """ Class for creating paginated navigation """
 
     def __init__(self, page_id: int, category: Category()):
