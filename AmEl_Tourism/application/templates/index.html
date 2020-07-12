@@ -76,9 +76,9 @@
                                             '').split()[:30]).strip() %}
 
                                                     {% if '!?:;".,'.find(formatted_text[-1]) != -1 %}
-                                                        {% set preview_text = formatted_text[:-1] + '...' %}
+                                                        {% set preview_text = formatted_text[:-1] + ' ...' %}
                                                     {% else %}
-                                                        {% set preview_text = formatted_text + '...' %}
+                                                        {% set preview_text = formatted_text + ' ...' %}
                                                     {% endif %}
 
                                                     {{ preview_text }}
