@@ -566,6 +566,26 @@ div.arimolite-main-menu > ul > li:last-child {
     margin-bottom: 10px
 }
 
+@media all and (min-width: 768px) and (max-width: 990px) {
+    .post-related .post-title {
+        font-size: 14px !important;
+    }
+
+    .post-related .post-cats a, .post-related .post-cats {
+        font-size: 10px !important;
+    }
+
+    .comments-area {
+        margin-top: 30px !important;
+    }
+
+    .post-related .post-header {
+        margin-bottom: 25px !important;
+    }
+
+}
+
+
 .arimolite-single-post .post-footer {
     padding: 10px 0;
     border-top: 1px solid #eee;
