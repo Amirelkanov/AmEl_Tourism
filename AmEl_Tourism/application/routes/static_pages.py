@@ -79,8 +79,8 @@ def article(article_id: int) -> str:
 
     for i, article_img in enumerate(article_images):
 
-        image_tag_st_ind, group_img_tag_ind = article_text.find(
-            img_tag), article_text.find(group_img_tag)
+        image_tag_st_ind, group_img_tag_ind = article_text.find(img_tag),\
+                                              article_text.find(group_img_tag)
 
         # Inserting single image
         if image_tag_st_ind != -1:
