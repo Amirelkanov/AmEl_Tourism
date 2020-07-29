@@ -84,19 +84,15 @@ def article(article_id: int) -> str:
 
         # Inserting single image
         if image_tag_st_ind != -1:
-            article_text = article_text[
-                           :image_tag_st_ind] + \
-                           '<br><p class="centered-image post-format">' + \
-                           f'<img src="{article_img}" alt="" ' \
-                           f'class="pinit"></p>' + \
-                           article_text[image_tag_st_ind + len(img_tag):]
+            article_text = f"""{article_text[:image_tag_st_ind]} <br><p class="
+centered-image post-format"><img src="{article_img}" alt="" class="pinit"></p> {
+            article_text[image_tag_st_ind + len(img_tag):]}"""
 
         # Inserting group image
         elif group_img_tag_ind != -1:
-            article_text = article_text[:group_img_tag_ind] + \
-                           f'<li class="blocks-gallery-item">' \
-                           f'<img src="{article_img}" alt=""></li>' + \
-                           article_text[group_img_tag_ind + len(group_img_tag):]
+            article_text = f"""{article_text[:group_img_tag_ind]} <li class="
+blocks-gallery-item"><img src="{article_img}" alt=""></li>{
+            article_text[group_img_tag_ind + len(group_img_tag):]}"""
 
         # Inserting image group tag
         article_text: str = article_text.replace(
