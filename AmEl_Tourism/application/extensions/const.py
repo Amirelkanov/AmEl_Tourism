@@ -8,8 +8,8 @@ min_length_of_password = 8
 max_num_of_articles_per_page = 6
 
 YANDEX_API_KEY = "d403fb88-0f79-421c-84be-8eb6eb188c65"
-CLIENT_ID = "88f8766cc5ea144"
-imgur_api_url = "https://api.imgur.com/3/upload"
+CLIENT_ID = "7e7a9126e1014b93f7a3b3ea22d9f8d1"
+imgbb_api_url = "https://api.imgbb.com/1/upload"
 
 lonlat_factor = 0.00049866937, 0.00171661376
 

@@ -1,9 +1,12 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+
+import base64
+
 from requests import post
 
-from .const import CLIENT_ID, imgur_api_url
+from .const import CLIENT_ID, imgbb_api_url
 
 
 def upload_image(img_upload: bytes) -> str:
@@ -11,14 +14,12 @@ def upload_image(img_upload: bytes) -> str:
     :param img_upload: byte image to upload
     """
 
-    headers = {"Authorization": f"Client-ID {CLIENT_ID}"}
-
     image_link: dict = post(
-        imgur_api_url,
-        headers=headers,
+        imgbb_api_url,
         data={
-            'image': img_upload
+            "key": CLIENT_ID,
+            "image": base64.b64encode(img_upload)
         }
     ).json()
 
-    return image_link['data']['link']
+    return image_link["data"]["url"]
