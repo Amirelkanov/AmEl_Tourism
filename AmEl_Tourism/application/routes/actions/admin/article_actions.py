@@ -132,15 +132,25 @@ def edit_article(article_id):
                                        'Загрузить изображения'
     form = ArticleForm()
 
-    # Choices for category select
-    form.category.choices = [(i.id, i.name_of_category) for i in
-                             Category.query.all()]
-
     if request.method == "GET":
 
         article_by_id = Article.query.filter(Article.id == article_id,
                                              Article.user ==
                                              current_user).first()
+
+        # ----- Choices for category select -----
+
+        categories = []
+
+        [categories.insert(0, (category.id, category.name_of_category))
+         if category.id == article_by_id.article_category_id
+         else categories.append((category.id, category.name_of_category))
+         for category in Category.query.all()]
+
+        form.category.choices = categories
+
+        # ---------------------------------------
+
         if article_by_id:
 
             # Adding data from the database to forms data
