@@ -20,7 +20,6 @@ main = Blueprint('main', __name__)
 
 
 @main.route('/')
-@main.route('/index')
 @main.route('/page/<int:page_id>')
 def index(page_id: int = 1):
     """ Index page
