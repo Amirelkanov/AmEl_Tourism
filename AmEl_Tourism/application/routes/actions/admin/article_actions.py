@@ -28,7 +28,8 @@ def add_article():
 
     # Choices for category select
     form.category.choices = [(i.id, i.name_of_category) for i in
-                             Category.query.all()]
+                             sorted(Category.query.all(),
+                                    key=lambda x: x.name_of_category)]
 
     if request.method == 'POST':
         is_alert_hidden: bool = False
@@ -145,7 +146,8 @@ def edit_article(article_id):
         [categories.insert(0, (category.id, category.name_of_category))
          if category.id == article_by_id.article_category_id
          else categories.append((category.id, category.name_of_category))
-         for category in Category.query.all()]
+         for category in sorted(Category.query.all(),
+                                key=lambda x: x.name_of_category)]
 
         form.category.choices = categories
 
