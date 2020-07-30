@@ -177,8 +177,8 @@ def edit_article(article_id):
 
     if request.method == 'POST':
 
-        article_text, is_alert_hidden = form.text.data.replace('\r',
-                                                               '<br>'), False
+        article_text, is_alert_hidden = form.text.data.replace('\r', '<br>'), \
+                                        False
 
         if len(article_text.split()) < min_length_of_text:
             # ERROR: The article text is too small
